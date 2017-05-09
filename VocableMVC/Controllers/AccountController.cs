@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using VocableMVC.Models.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,11 +30,21 @@ namespace VocableMVC.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            //var result = _userManager.CreateAsync(new IdentityUser("admin"), "admin123");
+
+            return View();
+        }
+
+        [AllowAnonymous]
+        public IActionResult Login()
+        {
+            var result = _userManager.CreateAsync(new IdentityUser("Admin"), "Admin123");
+
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(AccountLoginVM model)
         {
             //Validera vy-modellen
             if (!ModelState.IsValid)
@@ -46,7 +58,7 @@ namespace VocableMVC.Controllers
                 model.Password);
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("UserName", result.Errors.First().Description);
+                ModelState.AddModelError("Password", result.Errors.First().Description);
                 return View(model);
             }
             //Logga in och skicka vidare användaren
