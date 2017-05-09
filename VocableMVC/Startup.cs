@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+
+
 
 namespace VocableMVC
 {
@@ -16,6 +19,10 @@ namespace VocableMVC
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //var connString = @"Data Source=westeuropevhdbsqlserver.database.windows.net,1433";
+            //services.AddDbContext<VHDBContext>(
+            //    options => options.UseSqlServer(connString));
+
             services.AddMvc();
         }
 
