@@ -1,0 +1,28 @@
+Non-registred User
+Can:
+Enters mainpage
+Able to read and try tests
+Able to select language from/to
+Learn a new language, or vocables
+
+
+Registred users can also:
+Create new vocables 
+Create tests
+Bookmark tests
+Save results
+See personal statistics
+Edit your own tests
+Ask to publish
+Search available tests/quizes
+
+
+Admin
+Approve tests
+Approve vocables
+Manage users (disobediant users can be banned/made inactive)
+Create vocables
+Create tests
+
+//Potentially a Teacher user that can create, edit and invite to tests/quizes
+
