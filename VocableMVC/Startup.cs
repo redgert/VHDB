@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-
-
+using VocableMVC.Models.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace VocableMVC
 {
@@ -19,9 +19,20 @@ namespace VocableMVC
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //var connString = @"Data Source=westeuropevhdbsqlserver.database.windows.net,1433";
-            //services.AddDbContext<VHDBContext>(
-            //    options => options.UseSqlServer(connString));
+            var connString = @"Server=tcp:westeuropevhdbsqlserver.database.windows.net,1433; Initial Catalog=vhdb; Persist Security Info=False; User ID=vhdbadmin; Password=niklas23serutsom34!; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;";
+
+            //Konfigurera EF att arbeta mot (MS-Klassen) IdentityDbContext
+            services.AddDbContext<VHDBContext>(
+                options => options.UseSqlServer(connString));
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Cookies.ApplicationCookie.LoginPath = "/account/login";
+            })
+                .AddEntityFrameworkStores<IdentityDbContext>()
+                .AddDefaultTokenProviders();
 
             services.AddMvc();
         }
@@ -30,13 +41,9 @@ namespace VocableMVC
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseDeveloperExceptionPage();
+            app.UseIdentity();
+
             app.UseMvcWithDefaultRoute();
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
         }
     }
 }
