@@ -10,20 +10,33 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using VocableMVC.Models.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace VocableMVC
 {
     public class Startup
     {
+        public IConfigurationRoot Configuration { get; }
+
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddUserSecrets<Startup>()
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
+
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = @"Server=tcp:westeuropevhdbsqlserver.database.windows.net,1433; Initial Catalog=vhdb; Persist Security Info=False; User ID=vhdbadmin; Password=niklas23serutsom34!; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;";
-
             //Konfigurera EF att arbeta mot (MS-Klassen) IdentityDbContext
-            services.AddDbContext<VHDBContext>(
-                options => options.UseSqlServer(connString));
+            //services.AddDbContext<VHDBContext>(
+            //    options => options.UseSqlServer(connString));
+
+            services.AddDbContext<IdentityDbContext>(
+                options => options.UseSqlServer(Configuration["connString"]));
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {

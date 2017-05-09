@@ -1,0 +1,18 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.Taghelpers
+@model VocableMVC.Models.ViewModels.AccountLoginVM
+@{
+    ViewBag.Title = "Vocable Helper";
+    Layout = "_Layout";
+}
+<h1>Login</h1>
+<form asp-controller="Account" asp-action="Login">
+    <label asp-for="UserName"></label>
+    <input asp-for="UserName" />
+    <span asp-validation-for="UserName"></span>
+    <br />
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+    <br />
+    <input type="submit" value="Login" />
+</form>
