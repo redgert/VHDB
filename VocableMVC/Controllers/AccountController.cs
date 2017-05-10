@@ -15,30 +15,23 @@ namespace VocableMVC.Controllers
     public class AccountController : Controller
     {
         UserManager<IdentityUser> _userManager;
-        RoleManager<IdentityRole> _roleManager;
         SignInManager<IdentityUser> _signInManager;
         IdentityDbContext _identityContext;
 
         public AccountController(
-            RoleManager<IdentityRole> roleManager,
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             IdentityDbContext dbContext)
         {
             _userManager = userManager;
-            _roleManager = roleManager;
             _signInManager = signInManager;
             _identityContext = dbContext;
         }
         // GET: /<controller>/
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             //var result = _userManager.CreateAsync(new IdentityUser("admin"), "admin123");
-            var result = await _roleManager.CreateAsync(new IdentityRole("Admin"));
-            var resultTeacher = await _roleManager.CreateAsync(new IdentityRole("Teacher"));
-            var resultStudent = await _roleManager.CreateAsync(new IdentityRole("Student"));
-            var user = await _userManager.FindByNameAsync("Mats");
-            var resultAdmin = await _userManager.AddToRoleAsync(user, "Admin");
+
             return View();
         }
 
