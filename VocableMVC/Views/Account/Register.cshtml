@@ -1,0 +1,27 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.Taghelpers
+@model VocableMVC.Models.ViewModels.AccountRegisterVM
+@{
+    ViewBag.Title = "Vocable Helper";
+    Layout = "_Layout";
+}
+<h1>Register</h1>
+<form asp-controller="Account" asp-action="Register">
+
+    <label asp-for="FirstName">Firstname</label>
+    <input asp-for="FirstName" />
+    <span asp-validation-for="FirstName"></span>
+    <br />
+    <label asp-for="LastName">Lastname</label>
+    <input asp-for="LastName" />
+    <span asp-validation-for="LastName"></span>
+    <br />
+    <label asp-for="UserName">Username</label>
+    <input asp-for="UserName" />
+    <span asp-validation-for="UserName"></span>
+    <br />
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+    <br />
+    <input type="submit" value="Register" />
+</form>

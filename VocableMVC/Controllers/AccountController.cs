@@ -44,7 +44,29 @@ namespace VocableMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(AccountLoginVM model)
+        public async Task<IActionResult> Login(AccountLoginVM model)
+        {
+            //Validera vy-modellen
+            if (!ModelState.IsValid)
+                return View(model);
+
+            //Logga in användaren (med en icke-persistent cookie)
+            await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
+
+            //Skicka användaren till en inloggnings-skyddad action
+            return RedirectToAction(nameof(HomeController.Index),"Home");
+        }
+
+        [AllowAnonymous]
+        public IActionResult Register()
+        {
+            //var result = _userManager.CreateAsync(new IdentityUser("Admin"), "Admin123");
+
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(AccountRegisterVM model)
         {
             //Validera vy-modellen
             if (!ModelState.IsValid)
@@ -66,8 +88,9 @@ namespace VocableMVC.Controllers
             await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
 
             //Skicka användaren till en inloggnings-skyddad action
-            return RedirectToAction(nameof(MembersController.Index), "Members");
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+
 
     }
 }
