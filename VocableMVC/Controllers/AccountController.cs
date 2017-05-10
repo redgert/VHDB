@@ -80,7 +80,7 @@ namespace VocableMVC.Controllers
                 model.Password);
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("Password", result.Errors.First().Description);
+                ModelState.AddModelError("Password",result.Errors.First().Description);
                 return View(model);
             }
             //Logga in och skicka vidare användaren
