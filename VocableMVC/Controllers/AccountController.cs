@@ -108,7 +108,7 @@ namespace VocableMVC.Controllers
             //var result2 = await _roleManager.CreateAsync(new IdentityRole("Teacher"));
             //var result3 = await _roleManager.CreateAsync(new IdentityRole("Student"));
 
-            ////var result4 = await _userManager.CreateAsync(new IdentityUser("Administ"), "Admin"); 
+            ////var result4 = await _userManager.CreateAsync(new IdentityUser("Administrator"), "Admin"); 
             //var user = await _userManager.FindByNameAsync("Mats");
             //var result5 = await _userManager.AddToRoleAsync(user, "Admin");
 

@@ -8,10 +8,15 @@ namespace VocableMVC.Models.Entities
     {
         public void AddUserDetails(string firstName, string lastName, string id)
         {
-            //var user = new Users
-            //{
-                
-            //}
+            var user = new Users
+            {
+                Aspid = id,
+                FirstName = firstName,
+                LastName = lastName
+            };
+
+            Add(user);
+            SaveChanges();
 
         }
 
