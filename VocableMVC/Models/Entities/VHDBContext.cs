@@ -14,7 +14,7 @@ namespace VocableMVC.Models.Entities
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-            optionsBuilder.UseSqlServer(@"Server=tcp:westeuropevhdbsqlserver.database.windows.net,1433; Initial Catalog=vhdb; Persist Security Info=False; User ID=vhdbadmin; Password=niklas23serutsom34!; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;");
+            //optionsBuilder.UseSqlServer(@"Server=tcp:westeuropevhdbsqlserver.database.windows.net,1433; Initial Catalog=vhdb; Persist Security Info=False; User ID=vhdbadmin; Password=niklas23serutsom34!; MultipleActiveResultSets=False; Encrypt=True; TrustServerCertificate=False; Connection Timeout=30;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -81,5 +81,7 @@ namespace VocableMVC.Models.Entities
                     .HasConstraintName("FK__VocableDict__UID__4222D4EF");
             });
         }
+
+        
     }
 }
