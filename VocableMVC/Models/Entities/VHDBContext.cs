@@ -7,9 +7,9 @@ namespace VocableMVC.Models.Entities
     public partial class VHDBContext : DbContext
     {
         public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<Dictionary> Dictionary { get; set; }
         public virtual DbSet<Languages> Languages { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<VocableDictionary> VocableDictionary { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,41 +28,6 @@ namespace VocableMVC.Models.Entities
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Dictionary>(entity =>
-            {
-                entity.ToTable("Dictionary", "voc");
-
-                entity.Property(e => e.Cid).HasColumnName("CID");
-
-                entity.Property(e => e.JoinId).HasColumnName("JoinID");
-
-                entity.Property(e => e.Lid).HasColumnName("LID");
-
-                entity.Property(e => e.Uid).HasColumnName("UID");
-
-                entity.Property(e => e.Word)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
-                entity.HasOne(d => d.C)
-                    .WithMany(p => p.Dictionary)
-                    .HasForeignKey(d => d.Cid)
-                    .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK__Dictionary__CID__3C69FB99");
-
-                entity.HasOne(d => d.L)
-                    .WithMany(p => p.Dictionary)
-                    .HasForeignKey(d => d.Lid)
-                    .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK__Dictionary__LID__3E52440B");
-
-                entity.HasOne(d => d.U)
-                    .WithMany(p => p.Dictionary)
-                    .HasForeignKey(d => d.Uid)
-                    .OnDelete(DeleteBehavior.Restrict)
-                    .HasConstraintName("FK__Dictionary__UID__3D5E1FD2");
-            });
-
             modelBuilder.Entity<Languages>(entity =>
             {
                 entity.ToTable("Languages", "voc");
@@ -79,6 +44,41 @@ namespace VocableMVC.Models.Entities
                 entity.Property(e => e.UserName)
                     .IsRequired()
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<VocableDictionary>(entity =>
+            {
+                entity.ToTable("VocableDictionary", "voc");
+
+                entity.Property(e => e.Cid).HasColumnName("CID");
+
+                entity.Property(e => e.JoinId).HasColumnName("JoinID");
+
+                entity.Property(e => e.Lid).HasColumnName("LID");
+
+                entity.Property(e => e.Uid).HasColumnName("UID");
+
+                entity.Property(e => e.Word)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.C)
+                    .WithMany(p => p.VocableDictionary)
+                    .HasForeignKey(d => d.Cid)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK__VocableDict__CID__412EB0B6");
+
+                entity.HasOne(d => d.L)
+                    .WithMany(p => p.VocableDictionary)
+                    .HasForeignKey(d => d.Lid)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK__VocableDict__LID__4316F928");
+
+                entity.HasOne(d => d.U)
+                    .WithMany(p => p.VocableDictionary)
+                    .HasForeignKey(d => d.Uid)
+                    .OnDelete(DeleteBehavior.Restrict)
+                    .HasConstraintName("FK__VocableDict__UID__4222D4EF");
             });
         }
     }

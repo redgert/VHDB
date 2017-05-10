@@ -7,12 +7,12 @@ namespace VocableMVC.Models.Entities
     {
         public Languages()
         {
-            Dictionary = new HashSet<Dictionary>();
+            VocableDictionary = new HashSet<VocableDictionary>();
         }
 
         public int Id { get; set; }
         public string Language { get; set; }
 
-        public virtual ICollection<Dictionary> Dictionary { get; set; }
+        public virtual ICollection<VocableDictionary> VocableDictionary { get; set; }
     }
 }

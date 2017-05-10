@@ -7,13 +7,13 @@ namespace VocableMVC.Models.Entities
     {
         public Users()
         {
-            Dictionary = new HashSet<Dictionary>();
+            VocableDictionary = new HashSet<VocableDictionary>();
         }
 
         public int Id { get; set; }
         public string UserName { get; set; }
         public bool IsAdmin { get; set; }
 
-        public virtual ICollection<Dictionary> Dictionary { get; set; }
+        public virtual ICollection<VocableDictionary> VocableDictionary { get; set; }
     }
 }

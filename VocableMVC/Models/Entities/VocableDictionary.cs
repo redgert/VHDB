@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace VocableMVC.Models.Entities
 {
-    public partial class Dictionary
+    public partial class VocableDictionary
     {
         public int Id { get; set; }
         public string Word { get; set; }
