@@ -6,6 +6,10 @@ namespace VocableMVC.Models.Entities
 {
     public partial class VHDBContext : DbContext
     {
+        public VHDBContext(DbContextOptions options) : base(options)
+        {
+
+        }
         public virtual DbSet<AspNetRoleClaims> AspNetRoleClaims { get; set; }
         public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }

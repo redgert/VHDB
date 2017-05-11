@@ -8,24 +8,33 @@ namespace VocableMVC.Models
 {
     public class Quiz
     {
-        public string GetWordFromVHDB()
+        private VHDBContext _VHDBContext;
+
+        public Quiz(VHDBContext vhdbContext)
         {
-            //ta ut ord från databasen och visa på sidan
-            //var w => Entities.VocableDictionary
-            var word = "";
-
-            using (VHDBContext context = new VHDBContext())
-            {
-
-                word = context.VocableDictionary
-                    .Where(w => w.Cid == 1)
-                    .Where(l => l.Lid == 1)
-                    .FirstOrDefault().ToString();
-            }
-            return word;
+            _VHDBContext = vhdbContext;
         }
 
-        public void MatchWord()
+        //List<VocableDictionary> vd
+        public string GetWordFromVHDB()
+        {
+
+            ////ta ut ord från databasen och visa på sidan
+            ////var w => Entities.VocableDictionary
+            //string word = "";
+            //    word = vd
+            //        .Where(w => w.Cid == 1)
+            //        .Where(l => l.Lid == 1)
+            //        .FirstOrDefault().ToString();
+            //return word;
+            var q = _VHDBContext.VocableDictionary.Where(w => w.Cid == 1).Where(l => l.Lid == 1).FirstOrDefault().Word;
+
+            return q;
+
+
+        }
+
+        public static void MatchWord()
         {
             //matcha ordet som användaren har klickat på mot det ord som hämtats från databasen
 

@@ -31,12 +31,13 @@ namespace VocableMVC
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //Konfigurera EF att arbeta mot (MS-Klassen) IdentityDbContext
-            services.AddDbContext<VHDBContext>(
-                options => options.UseSqlServer(Configuration["connString"]));
-
+            ////Konfigurera EF att arbeta mot (MS-Klassen) IdentityDbContext
             services.AddDbContext<IdentityDbContext>(
                 options => options.UseSqlServer(Configuration["connString"]));
+
+            services.AddDbContext<VHDBContext>(
+    options => options.UseSqlServer(Configuration["connString"]));
+
 
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
