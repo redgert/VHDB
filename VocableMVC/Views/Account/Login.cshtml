@@ -4,16 +4,16 @@
     ViewBag.Title = "Vocable Helper";
     Layout = "_Layout";
 }
-<h1>Login</h1>
+<h1>Logga in</h1>
 <form asp-controller="Account" asp-action="Login">
-    <label asp-for="UserName">Username</label>
+    <label asp-for="UserName">Användarnamn</label>
     <input asp-for="UserName" />
     <span asp-validation-for="UserName"></span>
     <br />
-    <label asp-for="Password"></label>
+    <label asp-for="Password">Lösenord</label>
     <input asp-for="Password" />
     <span asp-validation-for="Password"></span>
     <br />
-    <input type="submit" value="Login" />
+    <input type="submit" value="Logga in" />
 </form>
-<a href="~/Account/Register">Register a new account</a>
+<a href="~/Account/Register">Registrera ny användare</a>

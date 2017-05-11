@@ -20,5 +20,8 @@ namespace VocableMVC.Models.ViewModels
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [Required]
+        public string RoleSelection { get; set; }
     }
 }

@@ -4,32 +4,34 @@
     ViewBag.Title = "Vocable Helper";
     Layout = "_Layout";
 }
-<h1>Register</h1>
+<h1>Registrera ny användare</h1>
 <form asp-controller="Account" asp-action="Register">
 
-    <label asp-for="FirstName">Firstname</label>
+    <label asp-for="FirstName">Förnamn</label>
     <input asp-for="FirstName" />
     <span asp-validation-for="FirstName"></span>
     <br />
-    <label asp-for="LastName">Lastname</label>
+    <label asp-for="LastName">Efternamn</label>
     <input asp-for="LastName" />
     <span asp-validation-for="LastName"></span>
     <br />
-    <label asp-for="UserName">Username</label>
-    <input asp-for="UserName" />
-    <span asp-validation-for="UserName"></span>
-    <br />
-    <label asp-for="Password"></label>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span>
-  
+    <label asp-for="RoleSelection">Typ av användare</label>
     <select id="RoleSelection">
         <option value="student">Elev</option>
         <option value="teacher">Lärare</option>
     </select>
+    <br/>
+    <label asp-for="UserName">Användarnamn</label>
+    <input asp-for="UserName" />
+    <span asp-validation-for="UserName"></span>
+    <br />
+    <label asp-for="Password">Lösenord</label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+  
     <br />
     <br />
-    <input type="submit" value="Register" />
+    <input type="submit" value="Registrera" />
 
 
 </form>
