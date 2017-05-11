@@ -13,6 +13,13 @@ namespace VocableMVC.Controllers
         // GET: /<controller>/
         public IActionResult Quiz()
         {
+            
+            return View();
+        }
+
+        public IActionResult Start()
+        {
+            
             return View();
         }
     }
