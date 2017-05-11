@@ -1,3 +1,4 @@
 Anteckningar för vad vi gjort under dagarna:
 8/5 - Mock-Ups, ritade upp och diskuterade/spikade databasstruktur, UML, Userstories, påbörjade Azure. (byte bakgrundsbild massvis med gånger)
 9/5 - Lyckades skapa Databasen i Azure, börjat med views, Microsoft Identity, använde EF för att implimentera SQLen i MVC-appen.
+10/5 - MS Identity (roller osv) klar, login redirectory
