@@ -1,12 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System.Threading.Tasks;
 
 namespace VocableMVC.Models.Entities
 {
     public partial class VHDBContext : DbContext
     {
-        public void AddUserDetails(string firstName, string lastName, string id)
+        public async Task AddUserDetails(string firstName, string lastName, string id)
         {
             var user = new Users
             {
@@ -16,7 +17,7 @@ namespace VocableMVC.Models.Entities
             };
 
             Add(user);
-            SaveChanges();
+            await SaveChangesAsync();
 
         }
 

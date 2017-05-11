@@ -79,6 +79,8 @@ namespace VocableMVC.Controllers
             return View();
         }
 
+        
+
         [HttpPost]
         public async Task<IActionResult> Register(AccountRegisterVM model)
         {
@@ -86,8 +88,9 @@ namespace VocableMVC.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            //Skapa användare
-            await _identityContext.Database.EnsureCreatedAsync();
+            
+            //await _identityContext.Database.EnsureCreatedAsync();
+
 
             //Spara användaren i databasen
             var result = await _userManager.CreateAsync(new IdentityUser(model.UserName),
@@ -95,8 +98,10 @@ namespace VocableMVC.Controllers
             //när identity är klar
             //tar resterande data från anv. i VM. 
             //Skickar det till vår VHDBcontext
-            var userId = await _userManager.FindByNameAsync(model.UserName);
-            _vhdbcontext.AddUserDetails(model.FirstName, model.LastName, userId.Id);
+            var user = await _userManager.FindByNameAsync(model.UserName); //hämta anv från db
+            await _vhdbcontext.AddUserDetails(model.FirstName, model.LastName, user.Id); //skapa anv.details till anv?
+
+            var result5 = await _userManager.AddToRoleAsync(user, model.RoleSelection); //sätt roll till anv.
 
             if (!result.Succeeded)
             {
