@@ -4,3 +4,5 @@ Anteckningar för vad vi gjort under dagarna:
 10/5 - MS Identity (roller osv) klar, login redirectory
 11/5 - uppdaterat SQL med två tabeller (VocableTest och VocableTestToDic), fick quiz-sidan att läsa in ett ord från dB m.m.
 12/5 - redigerat SQL-tabellerna med ID-ref osv, försökt att skapa de första testerna i SQL och se så att kopplingarna emellan fungerar, börjat skapa tester i SQL, funderat lite på logga för projektet,
+15/5 - skapat logga och färgschema, CSS med bootstrap, HTML, påbörjat presentationen ordentligt, 
+
