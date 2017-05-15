@@ -1,0 +1,161 @@
+﻿/*
+ * Copyright (c) 2012-2013 Arbaoui Mehdi
+ * http://www.depotwebdesigner.com
+ */
+body {
+    padding-top: 7px;
+    font-family: 'Segoe Print';
+    text-align: center;
+}
+
+#navigation {
+    width: 900px;
+    font-size: 14px;
+    position: relative;
+    margin: auto;
+    
+
+}
+
+    #navigation a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #navigation nav {
+        box-shadow: 0 0 8px -1px #aaaaaa;
+        text-transform: uppercase;
+        background: #000000;
+        height: 58px;
+        border-left: 1px solid #464646;
+        border-right: 1px solid #464646;
+        z-index: 3;
+        position: relative;
+        width: 95%;
+        left: 2.4%;
+    }
+
+nav a {
+    padding: 4px 20px;
+    border-radius: 15px;
+}
+
+    nav a:hover {
+        background: #656565;
+    }
+
+.active-menu {
+    padding: 5px 25px;
+    background: #333333;
+    margin-right: 15px;
+}
+
+#navigation ul {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    right: 30px;
+}
+
+    #navigation ul li {
+        float: left;
+        list-style: none;
+        margin-left: 0;
+    }
+
+#logo {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    font-size: 22px;
+    z-index: 4;
+    font-style: italic;
+    text-shadow: 1px -2px 4px #962215;
+}
+
+.dark-color {
+    position: relative;
+    width: 100%;
+    height: 79px;
+    background: #904318;
+}
+
+.light-color {
+    background: #333333;
+    z-index: 3;
+    position: relative;
+    width: 102%;
+    top: 13%;
+    left: -1%;
+}
+
+.arrows {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+    .arrows span {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 39px inset transparent;
+        border-bottom: 39px inset transparent;
+    }
+
+.ar-left {
+    left: 0;
+    border-left: 10px solid #fff;
+    z-index: 2;
+}
+
+.ar-right {
+    right: 0;
+    border-right: 10px solid #fff;
+    z-index: 2;
+}
+
+.ar-left2, .ar-right2 {
+    border-top: 30px inset transparent !important;
+    border-bottom: 30px inset transparent !important;
+    top: 9.7%;
+    z-index: 4;
+}
+
+.ar-left2 {
+    left: -1.1%;
+    border-left: 12px solid #fff;
+}
+
+.ar-right2 {
+    right: -1%;
+    border-right: 12px solid #fff;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: auto;
+    background-color: #000000;
+    border-color: #904318;
+    border-width: 10px;
+    border-bottom: 10px solid #904318; 
+    border-left: 10px solid #904318;
+    border-right: 10px solid #904318;
+}
+
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+    max-height: 120px;
+}
+
+.footertext {
+    color: #ffffff;
+    font-family: 'Segoe Print';
+}
+
