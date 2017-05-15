@@ -56,6 +56,7 @@ namespace VocableMVC
         {
             app.UseDeveloperExceptionPage();
             app.UseIdentity();
+            app.UseStaticFiles();
 
             app.UseMvcWithDefaultRoute();
         }
