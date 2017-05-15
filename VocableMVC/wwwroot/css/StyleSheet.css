@@ -3,7 +3,7 @@
  * http://www.depotwebdesigner.com
  */
 body {
-    padding: 7px;
+    padding-top: 7px;
     font-family: 'Segoe Print';
     text-align: center;
 }
@@ -132,3 +132,30 @@ nav a {
     right: -1%;
     border-right: 12px solid #fff;
 }
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: auto;
+    background-color: #000000;
+    border-color: #904318;
+    border-width: 10px;
+    border-bottom: 10px solid #904318; 
+    border-left: 10px solid #904318;
+    border-right: 10px solid #904318;
+}
+
+.container {
+    width: auto;
+    max-width: 680px;
+    padding: 0 15px;
+    max-height: 120px;
+}
+
+.footertext {
+    color: #ffffff;
+    font-family: 'Segoe Print';
+}
+
