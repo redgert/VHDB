@@ -31,12 +31,8 @@ namespace VocableMVC.Controllers
         {
             Quiz quiz = new Quiz(context);//funkar men kan ställa till problem beronde på hur vi löser logiken men det funkar
 
-            QuizStartVM newVM = new QuizStartVM()
-            {
-                //Word = VocableMVC.Models.Quiz.GetWordFromVHDB(context.VocableDictionary.ToList())
-                Word = quiz.GetWordFromVHDB()
-
-            };
+            QuizStartVM newVM = quiz.GetWordFromVHDB(1, 2, 1);           
+        
             return View(newVM);
         }
     }
