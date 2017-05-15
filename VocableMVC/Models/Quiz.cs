@@ -21,21 +21,21 @@ namespace VocableMVC.Models
 
             //ta ut ord från databasen och visa på sidan
             ////var w => Entities.VocableDictionary
-            string word = "";
-                word = vd
-                    .Where(w => w.Cid == 1)
-                    .Where(l => l.Lid == 1)
-                    .FirstOrDefault().ToString();
-            return word;
-            //string Word = "";
+            //string word = "";
+            //    word = vd
+            //        .Where(w => w.Cid == 1)
+            //        .Where(l => l.Lid == 1)
+            //        .FirstOrDefault().ToString();
+            //return word;
+            ////string Word = "";
             //Guid JoinId;
             //string[] q = _VHDBContext.VocableDictionary.Where(w => w.Cid == 1).Where(l => l.Lid == 1).FirstOrDefault().{ Word = q.Word, JoinId = q.JoinId }.ToArray();
 
-            //var q = _VHDBContext.VocableDictionary.Where(w => w.Cid == 1).Where(w => w.Lid == 1).FirstOrDefault(w => new{w.Word, w.JoinId});
+            var q = _VHDBContext.VocableDictionary.Where(w => w.Cid == 1).Where(w => w.Lid == 1).FirstOrDefault().Word.ToString();
 
 
 
-            //return q;
+            return q;
 
 
         }
