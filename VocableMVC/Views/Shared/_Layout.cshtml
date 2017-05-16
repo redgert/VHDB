@@ -12,54 +12,59 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    @*<div id="menuHeader"><font size:"small"><a href="../Home/Index">[HEM]</a>&nbsp;<a href="../Quiz/Start">[QUIZ]</a>&nbsp;<a href="../Test/Start">[TEST]</a>&nbsp;<a href="~/Account/Login">[LOGGA IN]</a></font></div>*@
+    <script>
+        $(".hamb").click(function () {
+            $(".main-menu").toggleClass("active");
+            $(".spanf ").toggleClass("span1 ");
+            $(".spans ").toggleClass("span2 ");
+            $(".spant ").toggleClass("span3 ");
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
     <header>
-
-
-                <div id="navigation">
-                    <div class="arrows">
-                        <span class="ar-left"></span>
-                        <span class="ar-right"></span>
-                        <span class="ar-left2"></span>
-                        <span class="ar-right2"></span>
-                    </div>
-                    <div class="dark-color">
-                        <div class="light-color">
-                            <a href="#" id="logo" style="font-family: 'Segoe Print'">Vocable Helper*</a>
-                            <nav>
-                                <ul style="font-family: 'Segoe Print'">
-                                    <li><a href="../Home/Index" class="active-menu">Hem</a></li>
-                                    <li><a href="../Quiz/Start">Quiz</a></li>
-                                    <li><a href="../Test/Start">Test</a></li>
-                                    <li><a href="~/Account/Login">Logga in</a></li>
-                                    <li><a href="#">Om oss</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+        <div id="navigation">
+            <div class="arrows">
+                <span class="ar-left"></span>
+                <span class="ar-right"></span>
+                <span class="ar-left2"></span>
+                <span class="ar-right2"></span>
+            </div>
+            <div class="dark-color">
+                <div class="light-color">
+                    <a href="#" id="logo" style="font-family: 'Segoe Print'">Vocable Helper</a>
+                    <div class="hamb"><span class="spanf"><i></i></span><span class="spans"><i></i></span><span class="spant"><i></i></span></div>
+                    
+                    <nav>
+                        <ul style="font-family: 'Segoe Print'" class="main-menu">
+                            <li><a href="../Home/Index" class="active-menu">Hem</a></li>
+                            <li><a href="../Quiz/Start">Quiz</a></li>
+                            <li><a href="../Test/Start">Test</a></li>
+                            <li><a href="~/Account/Login">Logga in</a></li>
+                            <li><a href="#">Om oss</a></li>
+                        </ul>
+                    </nav>
                 </div>
-
-
-
-
+            </div>
+        </div>
     </header>
 
     <div id="Mainbody" style="font-family: 'Segoe Print'">
         @RenderBody()
     </div>
-<div id="footer" class="modal-footer" >
-    <div class="container">
-        <div class="col-md-12">
-            <center>
-                <br>
-                <h4 class="footertext">Vocable Helper</h4>
-                <p class="footertext">att försöka få tag i oss är lönlöst...<br>
-            </center>
+    <div id="footer" class="modal-footer">
+        <div class="container">
+            <div class="col-md-12">
+                <center>
+                    <br>
+                    <h4 class="footertext">Vocable Helper</h4>
+                    <p class="footertext">att försöka få tag i oss är lönlöst...<br>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <p><center><a href="#">info@vocables.se</a> <p class="footertext">(Mats är gammal)</p></center></p>
         </div>
     </div>
-    <div class="row">
-        <p><center><a href="#">info@vocables.se</a> <p class="footertext">(Mats är gammal)</p></center></p>
-    </div>
-</div>
 </body>
 </html>

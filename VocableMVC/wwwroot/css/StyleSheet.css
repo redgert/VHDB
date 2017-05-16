@@ -9,7 +9,8 @@ body {
 }
 
 #navigation {
-    width: 900px;
+    width: 70%;
+    max-height: 70px;
     font-size: 14px;
     position: relative;
     margin: auto;
@@ -27,6 +28,7 @@ body {
         text-transform: uppercase;
         background: #000000;
         height: 58px;
+        
         border-left: 1px solid #464646;
         border-right: 1px solid #464646;
         z-index: 3;
@@ -38,6 +40,7 @@ body {
 nav a {
     padding: 4px 20px;
     border-radius: 15px;
+    
 }
 
     nav a:hover {
@@ -66,7 +69,7 @@ nav a {
 
 #logo {
     position: absolute;
-    top: 30%;
+    top: 24%;
     left: 5%;
     font-size: 22px;
     z-index: 4;
@@ -173,3 +176,114 @@ nav a {
     font-family: 'Segoe Print';
 }
 
+/*Brytpunkt.............*/
+nav {
+    display: flex;
+    background-color: #000000;
+    
+}
+
+.hamb {
+    background: #000000;
+    width: 75px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: none;
+}
+
+    .hamb span i {
+        width: 30px;
+        height: 8px;
+        background: white;
+        position: absolute;
+        left: 25%;
+    }
+
+.span1 .span2 .span3 i {
+    position: absolute;
+}
+
+.hamb .spanf:nth-child(1) i {
+    top: 20%;
+}
+
+.hamb .spans:nth-child(2) i {
+    top: 40%;
+}
+
+.hamb .spant:nth-child(3) i {
+    top: 60%;
+}
+
+.span1:nth-child(1) i {
+    top: 40% !important;
+    transform: rotate(45deg);
+}
+
+.span2:nth-child(2) i {
+    left: 130px;
+}
+
+.span3:nth-child(3) i {
+    top: 40% !important;
+    transform: rotate(-45deg);
+}
+
+.main-menu {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    width: 55%;
+    
+    justify-content: space-around;
+    /*background-color: #000000;*/
+    animation: fadeIn 0.5s ease-in-out;
+    /*border: 1px solid white;*/
+    margin-left: 20px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.main-menu li {
+    text-align: center;
+    padding: 5px 0;
+}
+
+    .main-menu li a {
+        
+        /*text-decoration: none;*/
+    }
+
+
+@media (max-width: 768px) {
+    .hamb {
+        display: block;
+    }
+
+    .main-menu {
+        display: none;
+    }
+
+    .active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-menu li {
+        border-bottom: 1px solid white;
+    }
+
+        .main-menu li:nth-last-child(1) {
+            border-bottom: none;
+        }
+}
