@@ -133,6 +133,20 @@ nav a {
     border-right: 12px solid #fff;
 }
 
+#Mainbody {
+    margin-top: 7px;
+    background-color: #000000;
+    border: 10px solid #904318;
+    color: #ffffff;
+    font-family: 'Segoe Print';
+    padding-bottom: 20px;
+    
+}
+
+#NextButton {
+    color: black;
+}
+
 #footer {
     position: absolute;
     bottom: 0;
@@ -142,7 +156,7 @@ nav a {
     background-color: #000000;
     border-color: #904318;
     border-width: 10px;
-    border-bottom: 10px solid #904318; 
+    border-bottom: 10px solid #904318;
     border-left: 10px solid #904318;
     border-right: 10px solid #904318;
 }
