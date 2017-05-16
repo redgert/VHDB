@@ -153,9 +153,18 @@ nav a {
     
 }
 
-#NextButton {
+#ButtonTextColor {
     color: black;
 }
+
+#InputBoxColor {
+    color: black;
+}
+
+#RoleSelection {
+    color: black;
+}
+
 
 #footer {
     position: absolute;

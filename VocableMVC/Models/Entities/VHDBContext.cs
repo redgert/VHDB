@@ -6,7 +6,7 @@ namespace VocableMVC.Models.Entities
 {
     public partial class VHDBContext : DbContext
     {
-        public VHDBContext(DbContextOptions options) : base(options)
+        public VHDBContext(DbContextOptions<VHDBContext> options) : base(options)
         {
 
         }
