@@ -14,8 +14,6 @@ body {
     font-size: 14px;
     position: relative;
     margin: auto;
-    
-
 }
 
     #navigation a {
@@ -28,7 +26,6 @@ body {
         text-transform: uppercase;
         background: #000000;
         height: 58px;
-        
         border-left: 1px solid #464646;
         border-right: 1px solid #464646;
         z-index: 3;
@@ -40,7 +37,6 @@ body {
 nav a {
     padding: 4px 20px;
     border-radius: 15px;
-    
 }
 
     nav a:hover {
@@ -57,7 +53,7 @@ nav a {
     padding: 0;
     margin: 0;
     position: absolute;
-    top: 30%;
+    top: 25%;
     right: 30px;
 }
 
@@ -122,12 +118,12 @@ nav a {
 .ar-left2, .ar-right2 {
     border-top: 30px inset transparent !important;
     border-bottom: 30px inset transparent !important;
-    top: 9.7%;
+    top: 13.5%;
     z-index: 4;
 }
 
 .ar-left2 {
-    left: -1.1%;
+    left: -1%;
     border-left: 12px solid #fff;
 }
 
@@ -193,26 +189,23 @@ nav a {
 }
 
 /*Brytpunkt.............*/
-nav {
-    display: flex;
-    background-color: #000000;
-    
-}
+
 
 .hamb {
     background: #000000;
     width: 75px;
     height: 50px;
+
     position: relative;
     cursor: pointer;
-    overflow: hidden;
+    /*overflow: hidden;*/
     display: none;
 }
 
     .hamb span i {
-        width: 30px;
-        height: 8px;
-        background: white;
+        width: 25px;
+        height: 7px;
+        background: #904318;
         position: absolute;
         left: 25%;
     }
@@ -240,6 +233,7 @@ nav {
 
 .span2:nth-child(2) i {
     left: 130px;
+    display: none;
 }
 
 .span3:nth-child(3) i {
@@ -252,7 +246,6 @@ nav {
     list-style: none;
     display: flex;
     width: 55%;
-    
     justify-content: space-around;
     /*background-color: #000000;*/
     animation: fadeIn 0.5s ease-in-out;
@@ -276,30 +269,83 @@ nav {
 }
 
     .main-menu li a {
-        
         /*text-decoration: none;*/
     }
 
 
 @media (max-width: 768px) {
+
+    .ar-left2, .ar-right2 {
+        border-top: 30px inset transparent !important;
+        border-bottom: 30px inset transparent !important;
+        top: 5%;
+        z-index: 4;
+    }
+
+    .ar-left2 {
+        left: -1%;
+        border-left: 12px solid #fff;
+    }
+
+    .ar-right2 {
+        right: -1%;
+        border-right: 12px solid #fff;
+    }
+
+    #navigation {
+        position: relative;
+        margin: auto;
+        min-width: 400px;
+        
+    }
+
+    #logo {
+        left: 170px;
+    }
+
+    .light-color {
+        max-height: 78%;
+    }
+
+    .dark-color {
+        max-height: 65px;
+    }
+
     .hamb {
         display: block;
+        max-height: 50px;
+       width: 93%;
+       right: -13px;
     }
 
-    .main-menu {
-        display: none;
+    #navigation nav {
+       display: none;
     }
 
-    .active {
+    #navigation .active {
         display: flex;
-        flex-direction: column;
+        width: 80px auto;
+        max-width: 380px;
+        left: 12px;
+        height: 180px;
     }
+
+    #navigation .main-menu{
+        max-width: 100%;
+        left: 85px;
+        top: 10px;
+        flex-flow: column nowrap;
+    }
+
 
     .main-menu li {
-        border-bottom: 1px solid white;
+        /*border-bottom: 1px solid white;*/
+        
     }
 
         .main-menu li:nth-last-child(1) {
             border-bottom: none;
         }
+
+    
 }
