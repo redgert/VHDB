@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using VocableMVC.Models.ViewModels;
 using VocableMVC.Models.Entities;
+using Microsoft.AspNetCore.Http.Authentication;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -38,7 +39,7 @@ namespace VocableMVC.Controllers
         public IActionResult Index()
         {
             //var result = _userManager.CreateAsync(new IdentityUser("admin"), "admin123");
-            
+
             //var result = await _roleManager.CreateAsync(new IdentityRole("Admin"));
             //var result2 = await _roleManager.CreateAsync(new IdentityRole("Teacher"));
             //var result3 = await _roleManager.CreateAsync(new IdentityRole("Student"));
@@ -91,7 +92,7 @@ namespace VocableMVC.Controllers
             return View();
         }
 
-        
+
 
         [HttpPost]
         public async Task<IActionResult> Register(AccountRegisterVM model)
@@ -100,7 +101,7 @@ namespace VocableMVC.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            
+
             //await _identityContext.Database.EnsureCreatedAsync();
 
 
@@ -117,7 +118,7 @@ namespace VocableMVC.Controllers
 
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("Password",result.Errors.First().Description);
+                ModelState.AddModelError("Password", result.Errors.First().Description);
                 return View(model);
             }
 
@@ -138,12 +139,11 @@ namespace VocableMVC.Controllers
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
 
             return RedirectToAction(nameof(HomeController.Index), "Home");
-        } 
+        }
     }
 }
