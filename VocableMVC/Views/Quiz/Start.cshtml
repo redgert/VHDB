@@ -1,5 +1,6 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.Taghelpers
 @model VocableMVC.Models.ViewModels.QuizStartVM
+
 @{
     ViewBag.Title = "Vocable Helper";
     Layout = "_Layout";
@@ -10,9 +11,35 @@ Det här är övningsläget.<br />
 <p>@Model.MasterWord.Word</p>
 <br />
 
-<form>
-    <input type="radio" name="answer" value="WordA" /> A: @Model.SvarsOrden[0].AWord.Word<br />
-    <input type="radio" name="answer" value="WordB" /> B: @Model.SvarsOrden[1].AWord.Word<br />
-    <input type="radio" name="answer" value="WordC" /> C: @Model.SvarsOrden[2].AWord.Word<br />
-    <input type="button" value="Nästa" />
+<form asp-action="GetAnswer" method="get">
+    <input type="hidden" name="vocableDictionaryId" value="@Model.MasterWord.Id" />
+    <input type="radio" name="answer" value="@Model.SvarsOrden[0].AWord.JoinId" /> @Model.SvarsOrden[0].AWord.Word<br />
+    <input type="radio" name="answer" value="@Model.SvarsOrden[1].AWord.JoinId" /> @Model.SvarsOrden[1].AWord.Word<br />
+    <input type="radio" name="answer" value="@Model.SvarsOrden[2].AWord.JoinId" /> @Model.SvarsOrden[2].AWord.Word<br />
+    <input type="button" id="answerButton" value="Svara" />
+    <div id="displayResult"></div>
+
+    @*<input type="button" value="Nästa ord" asp-action="Start" />*@
+
+    <a href="../Quiz/Start">Nästa ord</a>
+    
+
 </form>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#answerButton').click(function () {
+            var answerValue = $('input[name=answer]:checked').val();
+            var vId = $('input[name=vocableDictionaryId]').val();
+            $.ajax({
+                url: "/Quiz/GetAnswer",
+                type: "GET",
+                data: { 'answer': answerValue, 'VocableDictionaryId': vId},   
+                success: function (returnJson) {
+                    $("#displayResult").html(JSON.stringify(returnJson))
+                }
+            });
+        });
+    });
+</script>
