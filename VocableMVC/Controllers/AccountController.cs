@@ -65,10 +65,22 @@ namespace VocableMVC.Controllers
                 return View(model);
 
             //Logga in användaren (med en icke-persistent cookie)
-            await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
+            var result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, false, false);
+
+            if (result.Succeeded)
+            {
+                //vi lyckades logga in skicka anv nånstans..
+                return RedirectToAction(nameof(HomeController.Index), "Home");
+
+            }
+            else
+            {
+                //vi lyckades inte logga in säg det till användaren
+                //ModelState.AddModelError()
+                return View(model);
+            }
 
             //Skicka användaren till en inloggnings-skyddad action
-            return RedirectToAction(nameof(HomeController.Index),"Home");
         }
 
         [AllowAnonymous]
@@ -126,6 +138,12 @@ namespace VocableMVC.Controllers
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
 
+            return RedirectToAction(nameof(HomeController.Index), "Home");
+        } 
     }
 }

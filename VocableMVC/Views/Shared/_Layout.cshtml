@@ -40,7 +40,14 @@
                             <li><a href="../Home/Index" class="active-menu">Hem</a></li>
                             <li><a href="../Quiz/Start">Quiz</a></li>
                             <li><a href="../Test/Start">Test</a></li>
-                            <li><a href="~/Account/Login">Logga in</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a href="~/Account/Logout">Logga ut</a></li>
+                            }
+                            else
+                            {
+                             <li><a href="~/Account/Login">Logga in</a></li>
+                            }
                             <li><a href="#">Om oss</a></li>
                         </ul>
                     </nav>
