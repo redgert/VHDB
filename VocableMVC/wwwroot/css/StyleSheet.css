@@ -136,7 +136,14 @@ nav a {
     border-right: 12px solid #fff;
 }
 
+#MainContainer {
+    align-items: center;
+    width: 100%;
+}
+
 #Mainbody {
+    max-width: 1000px;
+    margin: 0 auto;
     margin-top: 17px;
     background-color: #000000;
     border: 10px solid #904318;
