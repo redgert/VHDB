@@ -7,6 +7,9 @@ body {
     font-family: 'Segoe Print';
     text-align: center;
 }
+#Mainbody p {
+    font-size: 50px;
+}
 
 #navigation {
     width: 70%;

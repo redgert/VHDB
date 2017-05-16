@@ -6,23 +6,43 @@
     Layout = "_Layout";
 }
 <h1>Quiz</h1>
-Det här är övningsläget.<br />
+Översätt ordet till engelska<br />
 <br />
 <p>@Model.MasterWord.Word</p>
 <br />
 
 <form asp-action="GetAnswer" method="get">
     <input type="hidden" name="vocableDictionaryId" value="@Model.MasterWord.Id" />
-    <input type="radio" name="answer" value="@Model.SvarsOrden[0].AWord.JoinId" /> @Model.SvarsOrden[0].AWord.Word<br />
-    <input type="radio" name="answer" value="@Model.SvarsOrden[1].AWord.JoinId" /> @Model.SvarsOrden[1].AWord.Word<br />
-    <input type="radio" name="answer" value="@Model.SvarsOrden[2].AWord.JoinId" /> @Model.SvarsOrden[2].AWord.Word<br />
-    <input type="button" id="answerButton" value="Svara" />
+    <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-inverse">
+            <input type="radio" name="answer" autocomplete="off" value="@Model.SvarsOrden[0].AWord.JoinId" /> @Model.SvarsOrden[0].AWord.Word<br />
+        </label>
+    </div>
+    <br />
+    <br />
+    <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-inverse">
+            <input type="radio" name="answer" autocomplete="off" value="@Model.SvarsOrden[1].AWord.JoinId" /> @Model.SvarsOrden[1].AWord.Word<br />
+        </label>
+    </div>
+    <br />
+    <br />
+    <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-inverse">
+        <input type="radio" name="answer" autocomplete="off" value="@Model.SvarsOrden[2].AWord.JoinId" /> @Model.SvarsOrden[2].AWord.Word<br />
+    </label>
+</div>
+    <br />
+    <br />
+
+    <input type="button" class="btn btn-success" id="answerButton" value="Svara" />
     <div id="displayResult"></div>
 
     @*<input type="button" value="Nästa ord" asp-action="Start" />*@
-
-    <a href="../Quiz/Start">Nästa ord</a>
+    <br />
     
+    <a href="../Quiz/Start">Nästa ord</a>
+
 
 </form>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
