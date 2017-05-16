@@ -102,12 +102,26 @@ namespace VocableMVC.Models
                 quizStartVM.SvarsOrden[i] = new SvarsOrd();
             }
 
-            quizStartVM.SvarsOrden[0].AWord = correctWord;
-            quizStartVM.SvarsOrden[0].SelectedByUser = false;
-            quizStartVM.SvarsOrden[1].AWord = possibleWordOne;
-            quizStartVM.SvarsOrden[1].SelectedByUser = false;
-            quizStartVM.SvarsOrden[2].AWord = possibleWordTwo;
-            quizStartVM.SvarsOrden[2].SelectedByUser = false;
+            //Slump för placering av rätt svar
+            int random3 = random.Next(0, 3);
+            
+            quizStartVM.SvarsOrden[random3].AWord = correctWord;
+
+            if (random3 == 0)
+            {
+                quizStartVM.SvarsOrden[1].AWord = possibleWordOne;
+                quizStartVM.SvarsOrden[2].AWord = possibleWordTwo;
+            }
+            else if (random3 == 1)
+            {
+                quizStartVM.SvarsOrden[0].AWord = possibleWordOne;
+                quizStartVM.SvarsOrden[2].AWord = possibleWordTwo;
+            }
+            else if (random3 == 2)
+            {
+                quizStartVM.SvarsOrden[1].AWord = possibleWordOne;
+                quizStartVM.SvarsOrden[0].AWord = possibleWordTwo;
+            }
 
             return quizStartVM;
         }
