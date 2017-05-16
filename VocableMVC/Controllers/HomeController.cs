@@ -13,6 +13,8 @@ namespace VocableMVC.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+
+
             return View();
         }
     }

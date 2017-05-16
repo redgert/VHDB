@@ -8,11 +8,11 @@
 <form asp-controller="Account" asp-action="Register">
 
     <label asp-for="FirstName">Förnamn</label>
-    <input asp-for="FirstName" />
+    <input id="InputBoxColor" asp-for="FirstName" />
     <span asp-validation-for="FirstName"></span>
     <br />
     <label asp-for="LastName">Efternamn</label>
-    <input asp-for="LastName" />
+    <input id="InputBoxColor" asp-for="LastName" />
     <span asp-validation-for="LastName"></span>
     <br />
     <label asp-for="RoleSelection">Typ av användare</label>
@@ -22,16 +22,16 @@
     </select>
     <br/>
     <label asp-for="UserName">Användarnamn</label>
-    <input asp-for="UserName" />
+    <input id="InputBoxColor" asp-for="UserName" />
     <span asp-validation-for="UserName"></span>
     <br />
     <label asp-for="Password">Lösenord</label>
-    <input asp-for="Password" />
+    <input id="InputBoxColor" asp-for="Password" />
     <span asp-validation-for="Password"></span>
   
     <br />
     <br />
-    <input type="submit" value="Registrera" />
+    <input id="ButtonTextColor" type="submit" value="Registrera" />
 
 
 </form>
