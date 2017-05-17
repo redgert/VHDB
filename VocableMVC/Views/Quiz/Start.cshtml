@@ -13,39 +13,34 @@
 
 <form asp-action="GetAnswer" method="get">
     <input type="hidden" name="vocableDictionaryId" value="@Model.MasterWord.Id" />
-    <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-inverse">
-            <input type="radio" name="answer" autocomplete="off" value="@Model.SvarsOrden[0].AWord.JoinId" /> @Model.SvarsOrden[0].AWord.Word<br />
+    <div>
+        <label id="lab1">
+            <input type="radio" class="inp" name="answer" value="@Model.SvarsOrden[0].AWord.JoinId" /> @Model.SvarsOrden[0].AWord.Word<br />
         </label>
-    </div>
-    <br />
-    <br />
-    <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-inverse">
-            <input type="radio" name="answer" autocomplete="off" value="@Model.SvarsOrden[1].AWord.JoinId" /> @Model.SvarsOrden[1].AWord.Word<br />
+        <br />
+        <br />  
+        <label id="lab2">
+            <input type="radio" class="inp" name="answer" value="@Model.SvarsOrden[1].AWord.JoinId" /> @Model.SvarsOrden[1].AWord.Word<br />
         </label>
+        <br />
+        <br /><label id="lab3">
+            <input type="radio" class="inp" name="answer" value="@Model.SvarsOrden[2].AWord.JoinId" /> @Model.SvarsOrden[2].AWord.Word<br />
+        </label><br />
+        <br />
     </div>
-    <br />
-    <br />
-    <div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-inverse">
-        <input type="radio" name="answer" autocomplete="off" value="@Model.SvarsOrden[2].AWord.JoinId" /> @Model.SvarsOrden[2].AWord.Word<br />
-    </label>
-</div>
-    <br />
-    <br />
-
     <input type="button" class="btn btn-success" id="answerButton" value="Svara" />
     <div id="displayResult"></div>
 
     @*<input type="button" value="Nästa ord" asp-action="Start" />*@
     <br />
-    
+
     <a href="../Quiz/Start">Nästa ord</a>
 
 
 </form>
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+
 <script>
     $(document).ready(function () {
 
@@ -55,7 +50,7 @@
             $.ajax({
                 url: "/Quiz/GetAnswer",
                 type: "GET",
-                data: { 'answer': answerValue, 'VocableDictionaryId': vId},   
+                data: { 'answer': answerValue, 'VocableDictionaryId': vId },
                 success: function (returnJson) {
                     $("#displayResult").html(JSON.stringify(returnJson))
                 }

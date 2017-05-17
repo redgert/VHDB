@@ -7,10 +7,55 @@ body {
     font-family: 'Segoe Print';
     text-align: center;
 }
+
 #Mainbody p {
-    font-size: 50px;
+    font-size: 60px;
+    
+}
+/*--------*/
+.inp {
+    -webkit-appearance: none; /* tar bort default radiobutton utseende */
+    display: inline-flex;
+    margin: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    vertical-align: middle;
+    box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,0%,.5) 0 0 0 1px;
+    background-color: hsla(0,0%,0%,.2);
+    background-image: -webkit-radial-gradient( hsla(200,100%,90%,1) 0%, hsla(200,100%,70%,1) 15%, hsla(200,100%,60%,.3) 28%, hsla(200,100%,30%,0) 70% );
+    background-repeat: no-repeat;
+    -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1), -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
+    outline: none;
 }
 
+    .inp:checked {
+        -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1), -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+    }
+
+    .inp:active {
+        -webkit-transform: scale(1.5);
+        -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
+    }
+
+    /* Logik för upp och nedåt rörelse */
+
+    .inp,
+    input:active {
+        background-position: 0 24px;
+    }
+
+        input:checked {
+            background-position: 0 0;
+        }
+
+            input:checked ~ input,
+            input:checked ~ input:active {
+                background-position: 0 -24px;
+            }
+
+/*---------*/
 #navigation {
     width: 70%;
     max-height: 70px;
@@ -149,7 +194,6 @@ nav a {
     color: #ffffff;
     font-family: 'Segoe Print';
     padding-bottom: 20px;
-    
 }
 
 #ButtonTextColor {
@@ -198,7 +242,6 @@ nav a {
     background: #000000;
     width: 75px;
     height: 50px;
-
     position: relative;
     cursor: pointer;
     /*overflow: hidden;*/
@@ -299,7 +342,6 @@ nav a {
         position: relative;
         margin: auto;
         min-width: 400px;
-        
     }
 
     #logo {
@@ -317,12 +359,12 @@ nav a {
     .hamb {
         display: block;
         max-height: 50px;
-       width: 93.7%;
-       right: -13px;
+        width: 93.7%;
+        right: -13px;
     }
 
     #navigation nav {
-       display: none;
+        display: none;
     }
 
     #navigation .active {
@@ -333,7 +375,7 @@ nav a {
         height: 180px;
     }
 
-    #navigation .main-menu{
+    #navigation .main-menu {
         max-width: 100%;
         left: 85px;
         top: 10px;
@@ -343,12 +385,9 @@ nav a {
 
     .main-menu li {
         /*border-bottom: 1px solid white;*/
-        
     }
 
         .main-menu li:nth-last-child(1) {
             border-bottom: none;
         }
-
-    
 }
