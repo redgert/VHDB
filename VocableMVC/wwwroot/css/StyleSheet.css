@@ -3,6 +3,7 @@ body {
     padding-top: 7px;
     font-family: 'Segoe Print';
     text-align: center;
+    overflow: scroll;
 }
 
 #Mainbody p {
@@ -218,6 +219,7 @@ nav a {
 
 #Mainbody {
     max-width: 1000px;
+    min-width: 400px;
     margin: 0 auto;
     margin-top: 17px;
     background-color: #000000;
@@ -225,6 +227,7 @@ nav a {
     color: #ffffff;
     font-family: 'Segoe Print';
     padding-bottom: 20px;
+    
 }
 
 #ButtonTextColor {
@@ -241,8 +244,8 @@ nav a {
 
 
 #footer {
-    position: absolute;
-    bottom: 0;
+    margin-top: 20px;
+    bottom: auto;
     width: 100%;
     /* Set the fixed height of the footer here */
     height: auto;
