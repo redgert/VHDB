@@ -5,19 +5,14 @@ using System.Threading.Tasks;
 
 namespace VocableMVC.Models.ViewModels
 {
-    //public class DictionaryMainVM
-    //{
-    //    public string MotherWord { get; set; }
 
-    //    public string ForeignWord { get; set; }
+    public class DictionaryMainVM
+    {
+        public DictionaryWord DictionaryWord { get; set; }
 
-    //    public string Category { get; set; }
-
-    //    public string MotherLanguage { get; set; }
-
-    //    public string ForeignLanguage { get; set; }
-
-    //}
+        public List<DictionaryWord> dictionaryWords = new List<DictionaryWord>();
+                
+    }
 
     public class DictionaryWord
     {
@@ -40,7 +35,21 @@ namespace VocableMVC.Models.ViewModels
 
         public Guid JoinId { get; set; }
     }
+
     
-    //public static List<DictionaryWord> dictionaryWords = new List<DictionaryWord>();
-        
+
+    //public class DictionaryMainVM
+    //{
+    //    public string MotherWord { get; set; }
+
+    //    public string ForeignWord { get; set; }
+
+    //    public string Category { get; set; }
+
+    //    public string MotherLanguage { get; set; }
+
+    //    public string ForeignLanguage { get; set; }
+
+    //}
+
 }

@@ -23,18 +23,18 @@ namespace VocableMVC.Models
         {
             var q1 = _VHDBContext.VocableDictionary
                 .Where(w => w.Cid == categoryId && w.Lid == fromLanguageId)
+                .Select(w => new VocableWord
+                {
+                    Id = w.Id,
+                    CategoryId = w.Cid,
+                    JoinId = w.JoinId,
+                    LanguageId = w.Lid,
+                    Word = w.Word
+                })
                 .ToList();
 
-            var tmp = q1[random.Next(0, q1.Count)];
-
-            VocableWord masterWord = new VocableWord()
-            {
-                Id = tmp.Id,
-                CategoryId = tmp.Cid,
-                JoinId = tmp.JoinId,
-                LanguageId = tmp.Lid,
-                Word = tmp.Word
-            };
+            var masterWord = q1[random.Next(0, q1.Count)];
+                       
 
             // TODO Hantera First() med try/catch eventuallt?!
             var tmpCorrect = _VHDBContext.VocableDictionary
