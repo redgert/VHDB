@@ -57,7 +57,7 @@
                 type: "GET",
                 data: { 'answer': answerValue, 'VocableDictionaryId': vId},   
                 success: function (returnJson) {
-                    $("#displayResult").html(JSON.stringify(returnJson))
+                    $("#displayResult").html(JSON.data.stringify(returnJson))
                 }
             });
         });
