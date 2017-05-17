@@ -3,7 +3,14 @@ body {
     padding-top: 7px;
     font-family: 'Segoe Print';
     text-align: center;
-    overflow: scroll;
+    min-width: 100%;
+    min-height: 100%;
+    position: relative;
+    
+}
+html {
+    height: 100%;
+    width: 100%;
 }
 
 #Mainbody p {
@@ -215,19 +222,22 @@ nav a {
 #MainContainer {
     align-items: center;
     width: 100%;
+    padding-bottom: 225px;
 }
 
 #Mainbody {
     max-width: 1000px;
-    min-width: 400px;
+    min-width: 404px;
+    height: 100%;
     margin: 0 auto;
+   
+    /*padding-bottom: 150px;*/
     margin-top: 17px;
     background-color: #000000;
     border: 10px solid #904318;
     color: #ffffff;
     font-family: 'Segoe Print';
     padding-bottom: 20px;
-    
 }
 
 #ButtonTextColor {
@@ -244,11 +254,24 @@ nav a {
 
 
 #footer {
-    margin-top: 20px;
-    bottom: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    min-width: 404px;
+    padding-top: 25px;
+    
+    /*bottom: 0;
+    margin: 0;
+    margin-bottom: 0;
+    padding: 0;
+    padding-top: 20px;*/
+    /*margin-top: 3em;
+    clear: both;
+    height: 215px;
+   
+    position: relative;*/
     width: 100%;
     /* Set the fixed height of the footer here */
-    height: auto;
     background-color: #000000;
     border-color: #904318;
     border-width: 10px;
@@ -262,6 +285,7 @@ nav a {
     max-width: 680px;
     padding: 0 15px;
     max-height: 120px;
+
 }
 
 .footertext {
@@ -375,7 +399,7 @@ nav a {
     #navigation {
         position: relative;
         margin: auto;
-        min-width: 400px;
+        min-width: 404px;
     }
 
     #logo {
@@ -406,8 +430,8 @@ nav a {
     #navigation .active2 {
         display: flex;
         width: 80px auto;
-        max-width: 380px;
-        left: 12px;
+        max-width: 386px;
+        left: 13px;
         height: 180px;
     }
     #navigation li.active2 {
