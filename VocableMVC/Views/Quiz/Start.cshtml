@@ -28,8 +28,10 @@
         </label><br />
         <br />
     </div>
-    <input type="button" class="btn btn-success" id="answerButton" value="Svara" />
+    <input type="button" class="btn btn-success" id="answerButton" value="Svara"/>
     <div id="displayResult"></div>
+    <br />
+    <div id="displayScore"></div>
 
     @*<input type="button" value="Nästa ord" asp-action="Start" />*@
     <br />
@@ -52,9 +54,26 @@
                 type: "GET",
                 data: { 'answer': answerValue, 'VocableDictionaryId': vId },
                 success: function (returnJson) {
-                    $("#displayResult").html(JSON.stringify(returnJson))
+                    $("#displayResult").html(JSON.stringify(returnJson));
+                    if (returnJson == "Rätt svar!") {
+                        var button = document.getElementById("answerButton");
+                        button.disabled = true;
+                    }
+
+                    GetScore();
                 }
             });
         });
     });
+
+
+    function GetScore() {
+        $.ajax({
+            url: "/Quiz/GetScore",
+            type: "GET",
+            success: function (returnJson) {
+                $("#displayScore").html(JSON.stringify(returnJson))
+            }
+        });
+    }
 </script>

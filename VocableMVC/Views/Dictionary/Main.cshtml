@@ -1,0 +1,27 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.Taghelpers
+@model VocableMVC.Models.ViewModels.DictionaryMainVM
+
+@{
+    ViewBag.Title = "Vocable Helper";
+    Layout = "_Layout";
+}
+
+<h1>Ordbok</h1>
+Här bygger vi en view för ordboken<br />
+
+
+<table border="1">
+    <th>
+    <td>Ord på svenska</td>
+    <td>Ord på annat språk</td>
+    <td>Kategori</td>
+    </th>
+    @foreach (var item in Model.dictionaryWords)
+    {
+        <tr><td>@item.MotherWord</td><td>@item.ForeignWord</td><td>@item.CategoryId</td></tr>
+    }
+    
+
+</table>
+
+
