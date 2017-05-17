@@ -39,6 +39,25 @@ namespace VocableMVC.Controllers
         
             return View(newVM);
         }
+
+        [HttpGet]
+        public IActionResult GetAnswer(Guid answer, int vocableDictionaryId)
+        {
+            Quiz quiz = new Quiz(context);
+
+
+            bool correctAnswer = quiz.MatchWord(answer, vocableDictionaryId);
+
+            string returnJson = "";
+
+            if (correctAnswer)
+                returnJson = "Rätt svar!";
+            else
+                returnJson = "Fel, försök igen";
+                      
+            return Json(returnJson);
+        }
+
     }
 }
 

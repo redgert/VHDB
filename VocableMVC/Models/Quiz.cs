@@ -29,6 +29,7 @@ namespace VocableMVC.Models
 
             VocableWord masterWord = new VocableWord()
             {
+                Id = tmp.Id,
                 CategoryId = tmp.Cid,
                 JoinId = tmp.JoinId,
                 LanguageId = tmp.Lid,
@@ -101,51 +102,67 @@ namespace VocableMVC.Models
                 quizStartVM.SvarsOrden[i] = new SvarsOrd();
             }
 
-            quizStartVM.SvarsOrden[0].AWord = correctWord;
-            quizStartVM.SvarsOrden[0].SelectedByUser = false;
-            quizStartVM.SvarsOrden[1].AWord = possibleWordOne;
-            quizStartVM.SvarsOrden[1].SelectedByUser = false;
-            quizStartVM.SvarsOrden[2].AWord = possibleWordTwo;
-            quizStartVM.SvarsOrden[2].SelectedByUser = false;
+            //Slump för placering av rätt svar
+            int random3 = random.Next(0, 3);
+            
+            quizStartVM.SvarsOrden[random3].AWord = correctWord;
+
+            if (random3 == 0)
+            {
+                quizStartVM.SvarsOrden[1].AWord = possibleWordOne;
+                quizStartVM.SvarsOrden[2].AWord = possibleWordTwo;
+            }
+            else if (random3 == 1)
+            {
+                quizStartVM.SvarsOrden[0].AWord = possibleWordOne;
+                quizStartVM.SvarsOrden[2].AWord = possibleWordTwo;
+            }
+            else if (random3 == 2)
+            {
+                quizStartVM.SvarsOrden[1].AWord = possibleWordOne;
+                quizStartVM.SvarsOrden[0].AWord = possibleWordTwo;
+            }
 
             return quizStartVM;
         }
-
-        public static void MatchWord()
+        
+        public bool MatchWord(Guid answer, int vocableDictionaryId)
         {
-            //matcha ordet som användaren har klickat på mot det ord som hämtats från databasen
-
-
-            ////ta ut ord från databasen och visa på sidan
-            //////var w => Entities.VocableDictionary
-            //string word = "";
-            //    word = vd
-            //        .Where(w => w.Cid == 1)
-            //        .Where(l => l.Lid == 1)
-            //        .FirstOrDefault().ToString();
-            //return word;
-            ////string Word = "";
-            ////Guid JoinId;
-            ////string[] q = _VHDBContext.VocableDictionary.Where(w => w.Cid == 1).Where(l => l.Lid == 1).FirstOrDefault().{ Word = q.Word, JoinId = q.JoinId }.ToArray();
-
-            //quizStartVM.SvarsOrden[random.Next(0, quizStartVM.SvarsOrden.Length)] = correctWord;
-
-            //string[] queryWordInfo = new string[3];
-
-            ////var q1 = _VHDBContext.VocableDictionary.Where(w => w.Cid == 1).Where(w => w.Lid == 1).FirstOrDefault().Word.ToString();
-            //var q1 = _VHDBContext.VocableDictionary.Where(w => w.Cid == categoryId && w.Lid == languageId).FirstOrDefault().Word.ToString();
-            ////här hämtas ordet word (QueryWord = ordet som frågas om)
-            //var q2 = _VHDBContext.VocableDictionary.Where(w => w.Cid == 1).Where(w => w.Lid == 1).FirstOrDefault().JoinId;
-            ////här hämtas samma ord som word q1 men dess join ID
-            //var q3 = _VHDBContext.VocableDictionary.Where(w => w.JoinId == q2).Where(w => w.Lid == 2).FirstOrDefault().Word.ToString();
-            ////här hämtas samma join ID men med nytt LID (AnswerWord = ordet som är rätt svar på QueryWord)
-
-            //queryWordInfo[0] = q1;
-            //queryWordInfo[1] = q3;
-
+            var recreatedMasterWord = _VHDBContext.VocableDictionary
+                .First(w => w.Id == vocableDictionaryId);
+           
+            return answer == recreatedMasterWord.JoinId;
         }
+        
+        //matcha ordet som användaren har klickat på mot det ord som hämtats från databasen
 
 
+        ////ta ut ord från databasen och visa på sidan
+        //////var w => Entities.VocableDictionary
+        //string word = "";
+        //    word = vd
+        //        .Where(w => w.Cid == 1)
+        //        .Where(l => l.Lid == 1)
+        //        .FirstOrDefault().ToString();
+        //return word;
+        ////string Word = "";
+        ////Guid JoinId;
+        ////string[] q = _VHDBContext.VocableDictionary.Where(w => w.Cid == 1).Where(l => l.Lid == 1).FirstOrDefault().{ Word = q.Word, JoinId = q.JoinId }.ToArray();
 
+        //quizStartVM.SvarsOrden[random.Next(0, quizStartVM.SvarsOrden.Length)] = correctWord;
+
+        //string[] queryWordInfo = new string[3];
+
+        ////var q1 = _VHDBContext.VocableDictionary.Where(w => w.Cid == 1).Where(w => w.Lid == 1).FirstOrDefault().Word.ToString();
+        //var q1 = _VHDBContext.VocableDictionary.Where(w => w.Cid == categoryId && w.Lid == languageId).FirstOrDefault().Word.ToString();
+        ////här hämtas ordet word (QueryWord = ordet som frågas om)
+        //var q2 = _VHDBContext.VocableDictionary.Where(w => w.Cid == 1).Where(w => w.Lid == 1).FirstOrDefault().JoinId;
+        ////här hämtas samma ord som word q1 men dess join ID
+        //var q3 = _VHDBContext.VocableDictionary.Where(w => w.JoinId == q2).Where(w => w.Lid == 2).FirstOrDefault().Word.ToString();
+        ////här hämtas samma join ID men med nytt LID (AnswerWord = ordet som är rätt svar på QueryWord)
+
+        //queryWordInfo[0] = q1;
+        //queryWordInfo[1] = q3;
+                
     }
 }

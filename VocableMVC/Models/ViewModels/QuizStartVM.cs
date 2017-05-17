@@ -7,6 +7,7 @@ namespace VocableMVC.Models.ViewModels
 {
     public class VocableWord
     {
+        public int Id { get; set; }
         public string Word { get; set; }
         public Guid JoinId { get; set; }
         public int CategoryId { get; set; }
