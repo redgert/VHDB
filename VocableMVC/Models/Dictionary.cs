@@ -18,10 +18,9 @@ namespace VocableMVC.Models
             _VHDBContext = vhdbContext;
         }
 
-        public DictionaryMainVM GetDictionaryFromVHDB(int toLanguageId, int categoryId)
+        public DictionaryMainVM[] GetDictionaryFromVHDB(int toLanguageId, int categoryId)
         {
-            DictionaryMainVM dictionaryMainVM = new DictionaryMainVM();
-
+            
             //Bygg en lista av ord på valt språk
             var q1 = _VHDBContext.VocableDictionary
                 .Where(w => w.Cid == categoryId && w.Lid == 1)
@@ -35,18 +34,15 @@ namespace VocableMVC.Models
                 })
                 .ToArray();
 
-            int i = 0;
-            //foreach (var item in q1)
-            //{
-            //    item.JoinId
-            //}
-
-
-            //Bygg en lista av ord på svenska
-            var q2 = _VHDBContext.VocableDictionary
-                .Where(w => w.Cid == categoryId && w.Lid == 1)
-                .ToList();
-
+            DictionaryMainVM[] dictionaryMainVM = new DictionaryMainVM [q1.Length];
+            
+            for (int i = 0; i < q1.Count(); i++)
+            {
+                dictionaryMainVM[i] = new DictionaryMainVM();
+                dictionaryMainVM[i].FromWord = q1[i].OrgWord;
+                dictionaryMainVM[i].ToWord = q1[i].TransWord;
+            }
+            
             return dictionaryMainVM;
         }
     }

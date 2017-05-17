@@ -11,17 +11,60 @@ Här bygger vi en view för ordboken<br />
 
 
 <table border="1">
-    <th>
-    <td>Ord på svenska</td>
-    <td>Ord på annat språk</td>
-    <td>Kategori</td>
-    </th>
-    @foreach (var item in Model.dictionaryWords)
-    {
-        <tr><td>@item.MotherWord</td><td>@item.ForeignWord</td><td>@item.CategoryId</td></tr>
-    }
-    
+    @*<th>
+            <td>Ord på svenska</td>
+            <td>Ord på annat språk</td>
+        </th>*@
+    @*@foreach (var item in Model.DictionaryWords)
+        {
+            <tr><td>@item.FromWord</td><td>@item.ToWord</td></tr>
+        }*@
+
 
 </table>
 
+<div id="testDiv"></div>
 
+<select name="language" id="language">
+    <option value="2">Engelska</option>
+    <option value="3">Tyska</option>
+    <option value="4">Spanska</option>
+</select>
+
+<select name="category" id="category">
+    <option value="1">Djur</option>
+    <option value="2">Fordon</option>
+</select>
+
+<input type="button" id="buttonGetDictionary" value="Hämta!" />
+
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('#buttonGetDictionary').click(function () {
+            var toLanguageId = $('#language').val();
+            var categoryId = $('#category').val();
+
+            $.ajax({
+                url: "/Dictionary/GetDictionary",
+                type: "GET",
+                data: { 'toLanguageId': toLanguageId, 'categoryId': categoryId },
+                success: function (returnJson) {
+                    var out = "<div>";
+                    console.log(returnJson);
+                    for (var i = 0; i < returnJson.length; i++) {
+                        out += "<span>" + returnJson[i].fromWord + ': ' + returnJson[i].toWord + "</span><br/>"; 
+                    }
+                    out += "</div>";
+
+                    console.log(out);
+                    
+                    $("#testDiv").html(out);
+                }
+            });
+        });
+    });
+</script>

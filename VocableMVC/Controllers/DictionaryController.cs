@@ -23,18 +23,23 @@ namespace VocableMVC.Controllers
         // GET: /<controller>/
         public IActionResult Main()
         {
+            Dictionary dictionary = new Dictionary(context);
+
+            DictionaryMainVM[] newVM = dictionary.GetDictionaryFromVHDB(2, 1);
 
             return View();
         }
 
         [HttpGet]
-        public IActionResult GetDictionary(int toLanguageID, int categoryId)
+        public DictionaryMainVM[] GetDictionary()
         {
+            //int toLanguageID, int categoryId
+
             Dictionary dictionary = new Dictionary (context);
 
-            DictionaryMainVM newVM = dictionary.GetDictionaryFromVHDB(2,1);
-
-            return View(newVM);
+            DictionaryMainVM[] newVM = dictionary.GetDictionaryFromVHDB(2, 1);
+                       
+            return newVM;
         }
 
 

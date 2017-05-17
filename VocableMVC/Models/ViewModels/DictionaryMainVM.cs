@@ -4,39 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace VocableMVC.Models.ViewModels
-{
-
+{   
     public class DictionaryMainVM
     {
-        public DictionaryWord DictionaryWord { get; set; }
+        public string FromWord { get; set; }
 
-        public List<DictionaryWord> dictionaryWords = new List<DictionaryWord>();
-                
+        public string ToWord { get; set; }                        
     }
 
-    public class DictionaryWord
-    {
-        public string MotherWord { get; set; }
 
-        public int LanguageId { get; set; }
+    //public class DictionaryMainVM
+    //{
+    //    public DictionaryWord[] DictionaryWords { get; set; }
+    //}
 
-        public int CategoryId { get; set; }
-
-        public Guid JoinId { get; set; }
-
-        public ForeignWord ForeignWord { get; set; }
-    }
-
-    public class ForeignWord
-    {
-        public string AnswerWord { get; set; }
-
-        public int LangugageId { get; set; }
-
-        public Guid JoinId { get; set; }
-    }
-
-    
 
     //public class DictionaryMainVM
     //{

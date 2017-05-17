@@ -21,7 +21,7 @@ namespace VocableMVC.Models
         //List<VocableDictionary> vd
         public QuizStartVM GetWordFromVHDB(int fromLanguageId, int toLanguageId, int categoryId)
         {
-            var q1 = _VHDBContext.VocableDictionary
+            var masterWord = _VHDBContext.VocableDictionary
                 .Where(w => w.Cid == categoryId && w.Lid == fromLanguageId)
                 .Select(w => new VocableWord
                 {
@@ -30,12 +30,12 @@ namespace VocableMVC.Models
                     JoinId = w.JoinId,
                     LanguageId = w.Lid,
                     Word = w.Word
+
                 })
-                .ToList();
-
-            var masterWord = q1[random.Next(0, q1.Count)];
-                       
-
+                .OrderBy(w => Guid.NewGuid())
+                .FirstOrDefault()
+                ;
+            
             // TODO Hantera First() med try/catch eventuallt?!
             var tmpCorrect = _VHDBContext.VocableDictionary
                 .First(w => w.Lid == toLanguageId && w.JoinId == masterWord.JoinId);
