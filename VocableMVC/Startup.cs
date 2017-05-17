@@ -33,7 +33,7 @@ namespace VocableMVC
         {
 
             services.AddDbContext<VHDBContext>(
-    options => options.UseSqlServer(Configuration["connString"]));
+            options => options.UseSqlServer(Configuration["connString"]));
 
             ////Konfigurera EF att arbeta mot (MS-Klassen) IdentityDbContext
             services.AddDbContext<IdentityDbContext>(
@@ -50,12 +50,16 @@ namespace VocableMVC
                 .AddEntityFrameworkStores<IdentityDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddSession();
+            services.AddMemoryCache();
             services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseSession();
             app.UseDeveloperExceptionPage();
             app.UseIdentity();
             app.UseStaticFiles();

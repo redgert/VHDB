@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using VocableMVC.Models.ViewModels;
 using VocableMVC.Models.Entities;
 using VocableMVC.Models;
+using Microsoft.AspNetCore.Http;
 
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -17,6 +18,9 @@ namespace VocableMVC.Controllers
         VHDBContext context;
         public QuizController(VHDBContext context)
         {
+            HttpContext.Session.SetString("AnswerCounter", "0");
+            HttpContext.Session.SetString("CorrectAnswers", "0");
+
             this.context = context;
         }
         // GET: /<controller>/
