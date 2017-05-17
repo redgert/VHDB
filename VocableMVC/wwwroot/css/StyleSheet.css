@@ -252,14 +252,21 @@ nav a {
     color: black;
 }
 
+/*---------Språkval quiz-------------*/
+#LanguageSelect1, #LanguageSelect2, #CategorySelect {
+    background-color: black;
+    text-decoration-color: white;
+    border: thin ridge;
+    border-color: #333333;
+}
 
+/*------------------*/
 #footer {
     position: absolute;
     bottom: 0;
     left: 0;
     min-width: 404px;
     padding-top: 25px;
-    
     /*bottom: 0;
     margin: 0;
     margin-bottom: 0;

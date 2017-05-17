@@ -6,7 +6,30 @@
     Layout = "_Layout";
 }
 <h1>Quiz</h1>
-Översätt ordet till engelska<br />
+Översätt ordet från 
+
+<select id="LanguageSelect1">
+    <option>Svenska</option>
+    <option>Engelska</option>
+    <option>Franska</option>
+    <option>Spanska</option>
+    <option>Tyska</option>
+</select>
+till 
+<select id="LanguageSelect2">
+    <option>Engelska</option>
+    <option>Svenska</option>
+    <option>Franska</option>
+    <option>Spanska</option>
+    <option>Tyska</option>
+</select>
+i kategorin
+<select id="CategorySelect">
+    <option>Djur</option>
+    <option>Fordon</option>
+    <option>Frukt</option>
+</select>
+
 <br />
 <p>@Model.MasterWord.Word</p>
 <br />
