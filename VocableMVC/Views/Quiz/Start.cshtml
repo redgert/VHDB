@@ -6,7 +6,30 @@
     Layout = "_Layout";
 }
 <h1>Quiz</h1>
-Översätt ordet till engelska<br />
+Översätt ordet från 
+
+<select id="LanguageSelect1">
+    <option>Svenska</option>
+    <option>Engelska</option>
+    <option>Franska</option>
+    <option>Spanska</option>
+    <option>Tyska</option>
+</select>
+till 
+<select id="LanguageSelect2">
+    <option>Engelska</option>
+    <option>Svenska</option>
+    <option>Franska</option>
+    <option>Spanska</option>
+    <option>Tyska</option>
+</select>
+i kategorin
+<select id="CategorySelect">
+    <option>Djur</option>
+    <option>Fordon</option>
+    <option>Frukt</option>
+</select>
+
 <br />
 <p>@Model.MasterWord.Word</p>
 <br />
@@ -28,15 +51,16 @@
         </label><br />
         <br />
     </div>
-    <input type="button" class="btn btn-success" id="answerButton" value="Svara" />
+    <input type="button" class="svarabtn" id="answerButton" value="Svara"/>
     <div id="displayResult"></div>
     <br />
     <div id="displayScore"></div>
 
     @*<input type="button" value="Nästa ord" asp-action="Start" />*@
     <br />
+    <br />
 
-    <a href="../Quiz/Start">Nästa ord</a>
+    <a href="../Quiz/Start" class="nextword"><span class="arrow-right">Nästa ord</span></a>
 
 
 </form>
@@ -55,6 +79,11 @@
                 data: { 'answer': answerValue, 'VocableDictionaryId': vId },
                 success: function (returnJson) {
                     $("#displayResult").html(JSON.stringify(returnJson));
+                    if (returnJson == "Rätt svar!") {
+                        var button = document.getElementById("answerButton");
+                        button.disabled = true;
+                    }
+
                     GetScore();
                 }
             });

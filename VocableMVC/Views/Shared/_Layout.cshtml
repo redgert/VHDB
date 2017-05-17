@@ -30,9 +30,9 @@
                     <div class="hamb"><span class="spanf"><i></i></span><span class="spans"><i></i></span><span class="spant"><i></i></span></div>
                     <nav>
                         <ul class="main-menu" style="font-family: 'Segoe Print'">
-                            <li><a href="../Home/Index" class="active-menu">Hem</a></li>
+                            <li><a href="../Home/Index" @*class= "active-menu"*@>Hem</a></li>
                             <li><a href="../Quiz/Start">Quiz</a></li>
-                            <li><a href="../Test/Start">Test</a></li>
+                            @*<li><a href="../Test/Start">Test</a></li>*@
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li><a href="~/Account/Logout">Logga ut</a></li>
@@ -68,16 +68,44 @@
             <p><center><a href="#">info@vocables.se</a> <p class="footertext"></p></center></p>
         </div>
     </div>
+    <script>
+        $(function () {
+            // Denna tar hela urlen från adressfältet
+            var url = window.location.href;
+
+            // skickar vidare a taggen
+            $(".main-menu a").each(function () {
+                // kollar om det är samma som i adressfältet
+                if (url == (this.href)) {
+                    $(this).closest("li").addClass("active");
+                }
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            // Denna tar hela urlen från adressfältet
+            var url = window.location.href;
+
+            // skickar vidare a taggen
+            $(".active").each(function () {
+                // kollar om det är samma som i adressfältet
+                if (url == (this.href)) {
+                    $(this).closest("li").addClass("active2");
+                }
+            });
+        });
+    </script>
     <script type="text/javascript">
         $(document).ready(function () {
             $(".hamb").click(function () {
-                $("nav").toggleClass("active");
+                $("nav").toggleClass("active2");
                 $(".spanf ").toggleClass("span1 ");
                 $(".spans ").toggleClass("span2 ");
                 $(".spant ").toggleClass("span3 ");
             });
         });
     </script>
-    <script></script>
+    
 </body>
 </html>
