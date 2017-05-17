@@ -19,8 +19,10 @@ html {
 }
 /*-------LÄNK---*/
 a.nextword {
-    margin: 1em auto;
-    width: 250px;
+    float: right;
+    margin: -2em auto;
+    margin-right: 10px;
+    width: 200px;
     text-align: center;
     background-color: #000000;
     padding: 0.5em 0;
@@ -38,6 +40,27 @@ a.nextword {
     text-decoration: none;
 }
 
+    /*-------svara knapp-----*/
+.svarabtn {
+    margin: 1em auto;
+    width: 120px;
+    text-align: center;
+    background-color: #000000;
+    padding: 0.5em 0;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border-radius: 8px;
+}
+
+    .svarabtn:hover {
+        color: #000000;
+        background-color: #ffffff;
+        text-decoration: none;
+    }
+    /*-----svaraknapp slut-----*/
 
 .arrow-right::after {
     content: '\25ba';
