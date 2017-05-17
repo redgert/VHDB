@@ -1,7 +1,4 @@
-﻿/*
- * Copyright (c) 2012-2013 Arbaoui Mehdi
- * http://www.depotwebdesigner.com
- */
+﻿
 body {
     padding-top: 7px;
     font-family: 'Segoe Print';
@@ -12,7 +9,34 @@ body {
     font-size: 60px;
     
 }
-/*--------*/
+/*-------LÄNK---*/
+a.nextword {
+    margin: 1em auto;
+    width: 250px;
+    text-align: center;
+    background-color: #000000;
+    padding: 0.5em 0;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    
+    border-radius: 8px;
+}
+    a.nextword:hover{
+    color: #000000;
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+
+.arrow-right::after {
+    content: '\25ba';
+    padding-left: 0.5em;
+}
+
+
 .inp {
     -webkit-appearance: none; /* tar bort default radiobutton utseende */
     display: inline-flex;
@@ -23,20 +47,22 @@ body {
     cursor: pointer;
     vertical-align: middle;
     box-shadow: hsla(0,0%,100%,.15) 0 1px 1px, inset hsla(0,0%,0%,.5) 0 0 0 1px;
-    background-color: hsla(0,0%,0%,.2);
+    background-color: hsla(0,0%,0%,.5);
     background-image: -webkit-radial-gradient( hsla(200,100%,90%,1) 0%, hsla(200,100%,70%,1) 15%, hsla(200,100%,60%,.3) 28%, hsla(200,100%,30%,0) 70% );
     background-repeat: no-repeat;
     -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1), -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
-    outline: none;
+
 }
 
     .inp:checked {
         -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1), -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+        
     }
 
     .inp:active {
         -webkit-transform: scale(1.5);
         -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
+        
     }
 
     /* Logik för upp och nedåt rörelse */
@@ -91,11 +117,16 @@ nav a {
         background: #656565;
     }
 
-.active-menu {
+
+.active a {
     padding: 5px 25px;
+
     background: #333333;
+    color: yellow;
     margin-right: 15px;
+    max-height: 25px;
 }
+
 
 #navigation ul {
     padding: 0;
@@ -361,25 +392,48 @@ nav a {
         max-height: 50px;
         width: 93.7%;
         right: -13px;
+        
     }
 
     #navigation nav {
         display: none;
+        
     }
 
-    #navigation .active {
+    #navigation .active2 {
         display: flex;
         width: 80px auto;
         max-width: 380px;
         left: 12px;
         height: 180px;
     }
+    #navigation li.active2 {
+        max-height: 55px;
+        left: 35px;
+    }
+    #navigation li {
+        max-height: 100%;
+        /*padding: 5px 5px 5px;*/
+        position: relative;
+        /*padding-bottom: 30px;*/
+    }
 
+
+    .active2 a {
+        padding: 2px 25px 4px;
+        
+        
+        margin-right: 15px;
+        max-height: 25px;
+        
+    }
     #navigation .main-menu {
         max-width: 100%;
         left: 85px;
         top: 10px;
         flex-flow: column nowrap;
+        max-height: 160px;
+        
     }
 
 
