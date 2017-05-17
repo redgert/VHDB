@@ -73,6 +73,7 @@ namespace VocableMVC.Controllers
 
             if (correctAnswer)
                 returnJson = "Rätt svar!";
+
             else
                 returnJson = "Fel, försök igen";
 

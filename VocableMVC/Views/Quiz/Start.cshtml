@@ -28,7 +28,7 @@
         </label><br />
         <br />
     </div>
-    <input type="button" class="btn btn-success" id="answerButton" value="Svara" />
+    <input type="button" class="btn btn-success" id="answerButton" value="Svara"/>
     <div id="displayResult"></div>
     <br />
     <div id="displayScore"></div>
@@ -55,6 +55,11 @@
                 data: { 'answer': answerValue, 'VocableDictionaryId': vId },
                 success: function (returnJson) {
                     $("#displayResult").html(JSON.stringify(returnJson));
+                    if (returnJson == "Rätt svar!") {
+                        var button = document.getElementById("answerButton");
+                        button.disabled = true;
+                    }
+
                     GetScore();
                 }
             });
