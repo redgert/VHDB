@@ -1,18 +1,31 @@
 ﻿
 body {
     padding-top: 7px;
-    font-family: 'Segoe Print' !important;
+    font-family: 'Segoe Print'!important;
     text-align: center;
     min-width: 100%;
     min-height: 100%;
     position: relative;
-    opacity: 1;
-
-    
+    /*opacity: 1;*/
 }
+/*@font-face {
+    font-family: "crayoncrumble.ttf";
+    font-style: normal;
+    src: url(../fonts/akaPosse.ttf); /*if IE */
+    /*src: local("crayoncrumble"), url("") format("truetype");*/ /* non-IE */
+/*}*/
+/*@font-face {
+    font-family: 'crayoncrumble';
+    font-style: normal;
+    src: url(crayoncrumble.ttf) format('truetype');
+    
+}*/
+
+
 html {
     height: 100%;
     width: 100%;
+    font-family: 'Segoe Print' !important;
     /*background: url('../VHDB/library.jpg');
     background-size: cover !important;
     background-attachment: fixed !important;
@@ -28,9 +41,28 @@ html {
     background-repeat: no-repeat !important;*/
 }
 
+/*.loggan {
+    /*height: 58px;
+    width: 58px;*/
+    /*height: 58px;
+    position: relative;
+    left: -270px;
+}*/
+
+.loggan {
+    height: 324px;
+    width: 424px;
+    bottom: 0;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+.loggandiv {
+    bottom: 0;
+}
+
 #Mainbody p {
     font-size: 60px;
-    opacity: 1;
+    /*opacity: 1;*/
 }
 /*-------LÄNK---*/
 a.nextword {
@@ -167,6 +199,7 @@ a.nextword {
 #InputBoxColor {
     color: white;
     font: bold;
+    
     background-color: black;
     flex-direction: row;
     border: ridge;
@@ -190,9 +223,10 @@ a.nextword {
 }
 
 /*------------------*/
-
-
-    /*-------reg area------*/
+.lihome {
+    list-style-type: none;
+}
+/*-------reg area------*/
 .arrow-right::after {
     content: '\25ba';
     padding-left: 0.5em;
@@ -200,7 +234,7 @@ a.nextword {
 
 
 .inp {
-    -webkit-appearance: none; /* tar bort default radiobutton utseende */
+    -webkit-appearance: button; /* tar bort default radiobutton utseende */
     display: inline-flex;
     left:auto;
     vertical-align: middle;
@@ -379,16 +413,15 @@ nav a {
     align-items: center;
     width: 100%;
     padding-bottom: 225px;
-    opacity: 1;
+    /*opacity: 1;*/
 }
 
 #Mainbody {
     max-width: 1000px;
-    min-width: 404px;
+    min-width: 409px;
     height: 100%;
     margin: 0 auto;
-    opacity: 1;
-   
+    /*opacity: 1;*/
     /*padding-bottom: 150px;*/
     margin-top: 17px;
     background-color: #000000;
@@ -405,7 +438,7 @@ nav a {
     position: absolute;
     bottom: 0;
     left: 0;
-    min-width: 404px;
+    min-width: 409px;
     padding-top: 25px;
     /*bottom: 0;
     margin: 0;
@@ -437,7 +470,7 @@ nav a {
 
 .footertext {
     color: #ffffff;
-    font-family: 'Segoe Print';
+    font-family: 'Segoe Print' !important;
 }
 
 /*Brytpunkt.............*/
@@ -546,7 +579,7 @@ nav a {
     #navigation {
         position: relative;
         margin: auto;
-        min-width: 404px;
+        min-width: 409px;
     }
 
     #logo {

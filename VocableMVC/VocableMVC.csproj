@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot/VHDB\latsta.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\css\Background.css" />
     <Content Include="wwwroot\css\bootstrap.css" />
     <Content Include="wwwroot\css\bootstrap.css.map" />
@@ -35,6 +39,9 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\css\crayoncrumble.ttf" />
   </ItemGroup>
 
 </Project>

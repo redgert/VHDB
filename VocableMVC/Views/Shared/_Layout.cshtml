@@ -14,7 +14,7 @@
 </head>
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <div class="myBackground"></div>
+
 
     <header>
         <div id="navigation">
@@ -30,12 +30,13 @@
 
                     <div class="hamb"><span class="spanf"><i></i></span><span class="spans"><i></i></span><span class="spant"><i></i></span></div>
                     <nav>
-                        <ul class="main-menu" style="font-family: 'Segoe Print'">
+                        @*<img class="loggan" src="~/VHDB/latsta2.png" />*@
+                        <ul class="main-menu" style="font-family:'Segoe Print'">
                             <li><a href="../Home/Index" @*class="active-menu" *@>Hem</a></li>
                             <li><a href="../Quiz/Start">Quiz</a></li>
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <li><a href="../Dictionary/Main">Ordbok</a></li>                                
+                                <li><a href="../Dictionary/Main">Ordbok</a></li>
                             }
                             @if (User.Identity.IsAuthenticated)
                             {
@@ -52,25 +53,37 @@
             </div>
         </div>
     </header>
-
     <div id="MainContainer">
-        <div id="Mainbody" style="font-family: 'Segoe Print'">
+        <div id="Mainbody" style="font-family:('Segoe Print') ">
             @RenderBody()
+
         </div>
     </div>
+
+    @*<style type="text/css">
+        font-face {
+    font-family: 'crayoncrumble';
+    font-style: normal;
+    src: url('/css/crayoncrumble.ttf') format('truetype');
+}
+    </style>*@
+   
+
     <div id="footer" class="modal-footer">
         <div class="container">
             <div class="col-md-12">
                 <center>
-                    <br>
                     <h4 class="footertext">Vocable Helper</h4>
-                    <p class="footertext">att försöka få tag i oss är lönlöst...<br>
-                </center>
+                    <p class="footertext">Vi har utvecklat sidan för dig, tveka inte att höra av dig om du har åsikter om den!<br>
+                @*<p>Utvecklad av Jörgen, Niklas, Magnus och Mats på Academy C#.NET VT17</p>*@
+                    Sidan är en del av ett skolprojekt på Academy och är i version 1</p>
+                    </center>
             </div>
-        </div>
-        <div class="row">
+        </div><br />
+        @*<div class="row">
+            <br />
             <p><center><a href="#">info@vocables.se</a> <p class="footertext"></p></center></p>
-        </div>
+        </div>*@
     </div>
     <script>
         $(function () {
