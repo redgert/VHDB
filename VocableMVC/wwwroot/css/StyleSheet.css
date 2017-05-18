@@ -55,6 +55,26 @@ a.nextword {
     text-decoration: none;
 }
 
+    /*----------Div table Dictionary Ordboken-----------*/
+.divtable td {
+    text-align: left;
+    padding: 5px 5px 3px 0px;
+}
+.divtable tr {
+    text-align: left;
+}
+
+.divtable th {
+    padding: 7px 50px 3px 0px;
+    border-bottom-color: antiquewhite;
+    font-size: 20px;
+}
+.divtable {
+    border-color: antiquewhite;
+    
+}
+
+    /*--------------------------------------*/
     /*-------svara knapp-----*/
 .svarabtn {
     margin: 1em auto;
@@ -125,12 +145,24 @@ a.nextword {
         align-content: center;
     }
 
-::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder {
+::-webkit-input-placeholder {
     font: bold;
-    color: grey;
+    color: antiquewhite;
+}
+::-moz-placeholder {
+    font: bold;
+    color: antiquewhite;
 }
 
+:-ms-input-placeholder {
+    font: bold;
+    color: antiquewhite;
+}
 
+:-moz-placeholder {
+    font: bold;
+    color: antiquewhite;
+}
 
 #InputBoxColor {
     color: white;
