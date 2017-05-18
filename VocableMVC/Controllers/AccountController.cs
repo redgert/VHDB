@@ -118,7 +118,7 @@ namespace VocableMVC.Controllers
 
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("Password", result.Errors.First().Description);                
+                ModelState.AddModelError("UserName", "Användarnamnet finns redan, vänligen välj ett annat");                
                 return View(model);
             }
 
