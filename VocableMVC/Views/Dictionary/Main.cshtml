@@ -7,7 +7,7 @@
 }
 
 <h1>Ordbok</h1>
-<p>Gör dina val av språk och kategori för att hämta en ordlista</p><br />
+Gör dina val av språk och kategori för att hämta en ordlista<br />
 
 <select name="language" id="language">
     <option value="2">Engelska</option>
@@ -22,7 +22,7 @@
 
 <input type="button" id="buttonGetDictionary" value="Hämta!" />
 
-<div id="testDiv"></div>
+<div id="divOutputTable" align="center"></div>
 
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 
@@ -38,16 +38,16 @@
                 type: "GET",
                 data: { 'toLanguageId': toLanguageId, 'categoryId': categoryId },
                 success: function (returnJson) {
-                    var out = "<div>";
+                    var out = "<table border='1'><tr><th>svenska</th><th>annat språk</th></tr>";
                     console.log(returnJson);
                     for (var i = 0; i < returnJson.length; i++) {
-                        out += "<span>" + returnJson[i].fromWord + ': ' + returnJson[i].toWord + "</span><br/>"; 
+                        out += "<tr><td>" + returnJson[i].fromWord + '</td><td>' + returnJson[i].toWord + "</td></tr>"; 
                     }
-                    out += "</div>";
+                    out += "</table>";  
 
                     console.log(out);
                     
-                    $("#testDiv").html(out);
+                    $("#divOutputTable").html(out);
                 }
             });
         });
