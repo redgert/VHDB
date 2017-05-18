@@ -77,7 +77,7 @@ namespace VocableMVC.Controllers
             else
             {
                 //vi lyckades inte logga in säg det till användaren
-                //ModelState.AddModelError()
+                ModelState.AddModelError(nameof(AccountLoginVM.UserName), "Inloggningen misslyckades");
                 return View(model);
             }
 
@@ -118,7 +118,7 @@ namespace VocableMVC.Controllers
 
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("Password", result.Errors.First().Description);
+                ModelState.AddModelError("Password", result.Errors.First().Description);                
                 return View(model);
             }
 
