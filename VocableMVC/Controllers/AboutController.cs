@@ -11,9 +11,16 @@ namespace VocableMVC.Controllers
     public class AboutController : Controller
     {
         // GET: /<controller>/
+        public IActionResult Index()
+        {            
+            return View();
+        }
+
+        // GET: /<controller>/
         public IActionResult About()
         {
             return View();
         }
+
     }
 }

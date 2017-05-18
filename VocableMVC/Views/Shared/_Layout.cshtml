@@ -5,12 +5,12 @@
 
 <html>
 <head>
-    
-        <meta name="viewport" content="width=device-width" />
-        <link href="~/css/StyleSheet.css" rel="stylesheet" />
-        <link href="~/css/bootstrap.min.css" rel="stylesheet" />
 
-        <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+    <title>@ViewBag.Title</title>
 </head>
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -31,18 +31,21 @@
                     <div class="hamb"><span class="spanf"><i></i></span><span class="spans"><i></i></span><span class="spant"><i></i></span></div>
                     <nav>
                         <ul class="main-menu" style="font-family: 'Segoe Print'">
-                            <li><a href="../Home/Index" @*class= "active-menu"*@>Hem</a></li>
+                            <li><a href="../Home/Index" @*class="active-menu" *@>Hem</a></li>
                             <li><a href="../Quiz/Start">Quiz</a></li>
-                            <li><a href="../Dictionary/Main">Ordbok</a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li><a href="../Dictionary/Main">Ordbok</a></li>                                
+                            }
                             @if (User.Identity.IsAuthenticated)
                             {
                                 <li><a href="~/Account/Logout">Logga ut</a></li>
                             }
                             else
                             {
-                             <li><a href="~/Account/Login">Logga in</a></li>
+                                <li><a href="~/Account/Login">Logga in</a></li>
                             }
-                            <li><a href="#">Om oss</a></li>
+                            <li><a href="../About/About">Om oss</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -107,6 +110,6 @@
             });
         });
     </script>
-    
+
 </body>
 </html>
