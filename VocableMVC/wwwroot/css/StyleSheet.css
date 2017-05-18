@@ -1,16 +1,31 @@
 ﻿
 body {
     padding-top: 7px;
-    font-family: 'Segoe Print';
+    font-family: 'Segoe Print' !important;
     text-align: center;
     min-width: 100%;
     min-height: 100%;
     position: relative;
+    opacity: 1;
+
     
 }
 html {
     height: 100%;
     width: 100%;
+    /*background-image: url('../VHDB/bookbw.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    /*opacity: 0.3;*/
+    background-position: center;
+    background-repeat: no-repeat;*/
 }
 
 #Mainbody p {
@@ -61,7 +76,69 @@ a.nextword {
         text-decoration: none;
     }
     /*-----svaraknapp slut-----*/
+    /*-----registreraknapp-----*/
+.regbtn {
+    margin: 1em auto;
+    width: 120px;
+    text-align: center;
+    background-color: #000000;
+    padding: 0.5em 0;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border-radius: 8px;
+}
 
+    .regbtn:hover {
+        color: #000000;
+        background-color: #ffffff;
+        text-decoration: none;
+    }
+
+
+    /*------reg area-----*/
+    .regarea {
+        align-content: center;
+    }
+
+::-webkit-input-placeholder, ::-moz-placeholder, :-ms-input-placeholder, :-moz-placeholder {
+    font: bold;
+    color: grey;
+}
+
+
+
+#InputBoxColor {
+    color: white;
+    font: bold;
+    background-color: black;
+    flex-direction: row;
+    border: ridge;
+    border-color: #333333;
+    width: 208px;
+}
+
+#RoleSelection {
+    background-color: black;
+    text-decoration-color: white;
+    border: ridge;
+    border-color: #333333;
+}
+
+/*---------Språkval quiz-------------*/
+#LanguageSelect1, #LanguageSelect2, #CategorySelect {
+    background-color: black;
+    text-decoration-color: white;
+    border: thin ridge;
+    border-color: #333333;
+}
+
+/*------------------*/
+
+
+    /*-------reg area------*/
 .arrow-right::after {
     content: '\25ba';
     padding-left: 0.5em;
@@ -122,17 +199,17 @@ a.nextword {
 }
 
     #navigation a {
-        color: #fff;
+        color: #fff !important;
         text-decoration: none;
     }
 
     #navigation nav {
         box-shadow: 0 0 8px -1px #aaaaaa;
         text-transform: uppercase;
-        background: #000000;
+        background: #000000 !important;
         height: 58px;
-        border-left: 1px solid #464646;
-        border-right: 1px solid #464646;
+        border-left: 1px solid #464646 !important;
+        border-right: 1px solid #464646 !important;
         z-index: 3;
         position: relative;
         width: 95.3%;
@@ -263,27 +340,9 @@ nav a {
     padding-bottom: 20px;
 }
 
-#ButtonTextColor {
-    color: black;
-}
 
-#InputBoxColor {
-    color: black;
-}
 
-#RoleSelection {
-    color: black;
-}
 
-/*---------Språkval quiz-------------*/
-#LanguageSelect1, #LanguageSelect2, #CategorySelect {
-    background-color: black;
-    text-decoration-color: white;
-    border: thin ridge;
-    border-color: #333333;
-}
-
-/*------------------*/
 #footer {
     position: absolute;
     bottom: 0;

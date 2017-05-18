@@ -5,33 +5,33 @@
     Layout = "_Layout";
 }
 <h1>Registrera ny användare</h1>
-<form asp-controller="Account" asp-action="Register">
-
-    <label asp-for="FirstName">Förnamn</label>
-    <input id="InputBoxColor" asp-for="FirstName" />
-    <span asp-validation-for="FirstName"></span>
+<form asp-controller="Account" class="regarea" asp-action="Register">
+    
+        @*<label asp-for="FirstName"></label>*@
+        <input id="InputBoxColor" placeholder="Förnamn" asp-for="FirstName" />
+        <span asp-validation-for="FirstName"></span>
+        <br />
+        @*<label asp-for="LastName">Efternamn</label>*@
+        <input id="InputBoxColor" placeholder="Efternamn" asp-for="LastName" />
+        <span asp-validation-for="LastName"></span>
+        <br />
+        <label asp-for="RoleSelection">Typ av användare</label>
+        <select id="RoleSelection" name="RoleSelection">
+            <option value="Student">Elev</option>
+            <option value="Teacher">Lärare</option>
+        </select>
+        <br />
+        @*<label asp-for="UserName">Användarnamn</label>*@
+        <input id="InputBoxColor" placeholder="Användarnamn" asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+        <br />
+        @*<label asp-for="Password">Lösenord</label>*@
+        <input id="InputBoxColor" placeholder="Lösenord" asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+    
     <br />
-    <label asp-for="LastName">Efternamn</label>
-    <input id="InputBoxColor" asp-for="LastName" />
-    <span asp-validation-for="LastName"></span>
     <br />
-    <label asp-for="RoleSelection">Typ av användare</label>
-    <select id="RoleSelection" name="RoleSelection">
-        <option value="Student">Elev</option>
-        <option value="Teacher">Lärare</option>
-    </select>
-    <br/>
-    <label asp-for="UserName">Användarnamn</label>
-    <input id="InputBoxColor" asp-for="UserName" />
-    <span asp-validation-for="UserName"></span>
-    <br />
-    <label asp-for="Password">Lösenord</label>
-    <input id="InputBoxColor" asp-for="Password" />
-    <span asp-validation-for="Password"></span>
-  
-    <br />
-    <br />
-    <input id="ButtonTextColor" type="submit" value="Registrera" />
+    <input id="ButtonTextColor" class="regbtn" type="submit" value="Registrera" />
 
 
 </form>
