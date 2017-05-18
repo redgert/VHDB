@@ -9,20 +9,34 @@ namespace VocableMVC.Models
 {
     public class Quiz
     {
+        public int FromLanguageId { get; set; }
+        public int ToLanguageId { get; set; }
+        public int CategoryId { get; set; }
+
+        public Quiz()
+        {
+            FromLanguageId = 1;
+            ToLanguageId = 2;
+            CategoryId = 1;
+            
+        }
+
+
         Random random = new Random();
 
         private VHDBContext _VHDBContext;
 
-        public Quiz(VHDBContext vhdbContext)
+        public Quiz(VHDBContext vhdbContext) : this()
         {
             _VHDBContext = vhdbContext;
         }
 
         //List<VocableDictionary> vd
-        public QuizStartVM GetWordFromVHDB(int fromLanguageId, int toLanguageId, int categoryId)
+        public QuizStartVM GetWordFromVHDB()
         {
+
             var masterWord = _VHDBContext.VocableDictionary
-                .Where(w => w.Cid == categoryId && w.Lid == fromLanguageId)
+                .Where(w => w.Cid == CategoryId && w.Lid == FromLanguageId)
                 .Select(w => new VocableWord
                 {
                     Id = w.Id,
@@ -38,7 +52,7 @@ namespace VocableMVC.Models
             
             // TODO Hantera First() med try/catch eventuallt?!
             var tmpCorrect = _VHDBContext.VocableDictionary
-                .First(w => w.Lid == toLanguageId && w.JoinId == masterWord.JoinId);
+                .First(w => w.Lid == ToLanguageId && w.JoinId == masterWord.JoinId);
 
             VocableWord correctWord = new VocableWord()
             {
@@ -49,7 +63,7 @@ namespace VocableMVC.Models
             };
 
             var possibleAnswers = _VHDBContext.VocableDictionary
-                .Where(w => w.Lid == toLanguageId && w.JoinId != masterWord.JoinId && w.Cid == categoryId)
+                .Where(w => w.Lid == ToLanguageId && w.JoinId != masterWord.JoinId && w.Cid == CategoryId)
                 .ToList();
 
             int random1 = random.Next(0, possibleAnswers.Count());
