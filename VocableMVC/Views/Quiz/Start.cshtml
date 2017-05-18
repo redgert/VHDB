@@ -111,7 +111,7 @@ i kategorin
             url: "/Quiz/QuizGameSettings",
             type: "GET",
             data: { 'fromLanguageId': fromLanguageId, 'toLanguageId': toLanguageId, 'categoryId': categoryId },
-            success: function (data) { alert(data); window.location.href = "/Quiz/Start"; }
+            success: function (data) { console.log(data); window.location.href = "/Quiz/Start"; }
         });
     });
 </script>
