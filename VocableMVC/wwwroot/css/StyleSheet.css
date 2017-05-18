@@ -276,7 +276,7 @@ nav a {
 }
 
 /*---------Språkval quiz-------------*/
-#LanguageSelect1, #LanguageSelect2, #CategorySelect {
+#fromLanguageId, #toLanguageId, #categoryId {
     background-color: black;
     text-decoration-color: white;
     border: thin ridge;
