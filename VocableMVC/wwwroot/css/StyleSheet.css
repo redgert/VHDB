@@ -13,7 +13,7 @@ body {
 html {
     height: 100%;
     width: 100%;
-    background: url('../VHDB/library.jpg');
+    /*background: url('../VHDB/library.jpg');
     background-size: cover !important;
     background-attachment: fixed !important;
     overflow: hidden;
@@ -25,7 +25,7 @@ html {
     z-index: -1;
     opacity: 0.9;
     background-position: center !important;
-    background-repeat: no-repeat !important;
+    background-repeat: no-repeat !important;*/
 }
 
 #Mainbody p {
@@ -99,6 +99,28 @@ a.nextword {
 
 
     /*------reg area-----*/
+
+    /*--------dict main-----*/
+.dictbtn {
+    margin: 1em auto;
+    width: 120px;
+    text-align: center;
+    background-color: #000000;
+    padding: 0.5em 0;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border-radius: 8px;
+}
+
+    .dictbtn:hover {
+        color: #000000;
+        background-color: #ffffff;
+        text-decoration: none;
+    }
+    /*------------------------*/
     .regarea {
         align-content: center;
     }
@@ -128,7 +150,7 @@ a.nextword {
 }
 
 /*---------Språkval quiz-------------*/
-#fromLanguageId, #toLanguageId, #categoryId {
+#fromLanguageId, #toLanguageId, #categoryId, .layoutdict {
     background-color: black;
     text-decoration-color: white;
     border: thin ridge;
