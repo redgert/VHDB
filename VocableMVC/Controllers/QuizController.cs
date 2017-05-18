@@ -13,34 +13,64 @@ using Microsoft.AspNetCore.Http;
 
 namespace VocableMVC.Controllers
 {
+
+
     public class QuizController : Controller
     {
+        int _fromLanguageId;
+        int _toLanguageId;
+        int _categoryId;
+
+
         VHDBContext context;
         public QuizController(VHDBContext context)
         {
             this.context = context;
         }
+
         // GET: /<controller>/
         public IActionResult Quiz()
         {
-
             return View();
         }
+
 
         [HttpGet]
         public IActionResult Start()
         {
             Quiz quiz = new Quiz(context);//funkar men kan ställa till problem beronde på hur vi löser logiken men det funkar
 
-            QuizStartVM newVM = quiz.GetWordFromVHDB(1, 2, 1);
+            //int? fromLanguageId = HttpContext.Session.GetInt32("fromLanguageId");
+            //if (fromLanguageId != null)
+            //    quiz.FromLanguageId = (int)fromLanguageId;
+
+            quiz.FromLanguageId = (HttpContext.Session.GetInt32("fromLanguageId") != null) ? (int)HttpContext.Session.GetInt32("fromLanguageId") : quiz.FromLanguageId;
+            quiz.ToLanguageId = (HttpContext.Session.GetInt32("toLanguageId") != null) ? (int)HttpContext.Session.GetInt32("toLanguageId") : quiz.ToLanguageId;
+            quiz.CategoryId = (HttpContext.Session.GetInt32("categoryId") != null) ? (int)HttpContext.Session.GetInt32("categoryId") : quiz.CategoryId;
+
+            QuizStartVM newVM = quiz.GetWordFromVHDB();
 
             return View(newVM);
         }
 
         [HttpGet]
+        public string QuizGameSettings(int fromLanguageId, int toLanguageId, int categoryId)
+        {
+            HttpContext.Session.SetInt32("fromLanguageId", fromLanguageId);
+            HttpContext.Session.SetInt32("toLanguageId", toLanguageId);
+            HttpContext.Session.SetInt32("categoryId", categoryId);
+
+            return ("ok");
+        }
+
+
+        [HttpGet]
         public IActionResult GetAnswer(Guid answer, int vocableDictionaryId)
         {
             Quiz quiz = new Quiz(context);
+            quiz.FromLanguageId = (HttpContext.Session.GetInt32("fromLanguageId") != null) ? (int)HttpContext.Session.GetInt32("fromLanguageId") : quiz.FromLanguageId;
+            quiz.ToLanguageId = (HttpContext.Session.GetInt32("toLanguageId") != null) ? (int)HttpContext.Session.GetInt32("toLanguageId") : quiz.ToLanguageId;
+            quiz.CategoryId = (HttpContext.Session.GetInt32("categoryId") != null) ? (int)HttpContext.Session.GetInt32("categoryId") : quiz.CategoryId;
 
             int? answers = HttpContext.Session.GetInt32("AnswerCounter");
 
@@ -97,7 +127,7 @@ namespace VocableMVC.Controllers
             {
                 correctAnswers = 0;
             }
-            if(correctAnswers == 0)
+            if (correctAnswers == 0)
             {
                 returnJson += "";
             }

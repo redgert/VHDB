@@ -7,29 +7,28 @@
 }
 
 <h1>Quiz</h1>
-Översätt ordet från 
+Översätt ordet från
 
-<select id="LanguageSelect1">
-    <option>Svenska</option>
-    <option>Engelska</option>
-    <option>Franska</option>
-    <option>Spanska</option>
-    <option>Tyska</option>
+<select id="fromLanguageId">
+    <option value="1">Svenska</option>
+    <option value="2">Engelska</option>
+    <option value="3">Tyska</option>
+    <option value="4">Spanska</option>
 </select>
-till 
-<select id="LanguageSelect2">
-    <option>Engelska</option>
-    <option>Svenska</option>
-    <option>Franska</option>
-    <option>Spanska</option>
-    <option>Tyska</option>
+till
+<select id="toLanguageId">
+    <option value="2">Engelska</option>
+    <option value="1">Svenska</option>
+    <option value="3">Tyska</option>
+    <option value="4">Spanska</option>
 </select>
 i kategorin
-<select id="CategorySelect">
-    <option>Djur</option>
-    <option>Fordon</option>
-    <option>Frukt</option>
+<select id="categoryId">
+    <option value="1">Djur</option>
+    <option value="2">Fordon</option>
+    <option value="3">Frukt</option>
 </select>
+<input type="button" class="svarabtn" id="quizSettingsButton" value="Uppdatera" />
 
 <br />
 <p>@Model.MasterWord.Word</p>
@@ -42,7 +41,7 @@ i kategorin
             <input type="radio" class="inp" name="answer" value="@Model.SvarsOrden[0].AWord.JoinId" /> @Model.SvarsOrden[0].AWord.Word<br />
         </label>
         <br />
-        <br />  
+        <br />
         <label id="lab2">
             <input type="radio" class="inp" name="answer" value="@Model.SvarsOrden[1].AWord.JoinId" /> @Model.SvarsOrden[1].AWord.Word<br />
         </label>
@@ -52,7 +51,7 @@ i kategorin
         </label><br />
         <br />
     </div>
-    <input type="button" class="svarabtn" id="answerButton" value="Svara"/>
+    <input type="button" class="svarabtn" id="answerButton" value="Svara" />
     <div id="displayResult"></div>
     <br />
     <div id="displayScore"></div>
@@ -101,4 +100,19 @@ i kategorin
             }
         });
     }
+</script>
+
+<script>
+    $('#quizSettingsButton').click(function () {
+        var fromLanguageId = $('#fromLanguageId').val();
+        var toLanguageId = $('#toLanguageId').val();
+        var categoryId = $('#categoryId').val();
+
+        $.ajax({
+            url: "/Quiz/QuizGameSettings",
+            type: "GET",
+            data: { 'fromLanguageId': fromLanguageId, 'toLanguageId': toLanguageId, 'categoryId': categoryId },
+            success: function (data) { console.log(data); window.location.href = "/Quiz/Start"; }
+        });
+    });
 </script>

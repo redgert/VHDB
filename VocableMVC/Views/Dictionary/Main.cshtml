@@ -7,23 +7,7 @@
 }
 
 <h1>Ordbok</h1>
-Här bygger vi en view för ordboken<br />
-
-
-<table border="1">
-    @*<th>
-            <td>Ord på svenska</td>
-            <td>Ord på annat språk</td>
-        </th>*@
-    @*@foreach (var item in Model.DictionaryWords)
-        {
-            <tr><td>@item.FromWord</td><td>@item.ToWord</td></tr>
-        }*@
-
-
-</table>
-
-<div id="testDiv"></div>
+Gör dina val av språk och kategori för att hämta en ordlista<br />
 
 <select name="language" id="language">
     <option value="2">Engelska</option>
@@ -38,8 +22,9 @@ Här bygger vi en view för ordboken<br />
 
 <input type="button" id="buttonGetDictionary" value="Hämta!" />
 
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<div id="divOutputTable" align="center"></div>
 
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 
 <script>
     $(document).ready(function () {
@@ -53,16 +38,16 @@ Här bygger vi en view för ordboken<br />
                 type: "GET",
                 data: { 'toLanguageId': toLanguageId, 'categoryId': categoryId },
                 success: function (returnJson) {
-                    var out = "<div>";
+                    var out = "<table border='1'><tr><th>svenska</th><th>annat språk</th></tr>";
                     console.log(returnJson);
                     for (var i = 0; i < returnJson.length; i++) {
-                        out += "<span>" + returnJson[i].fromWord + ': ' + returnJson[i].toWord + "</span><br/>"; 
+                        out += "<tr><td>" + returnJson[i].fromWord + '</td><td>' + returnJson[i].toWord + "</td></tr>"; 
                     }
-                    out += "</div>";
+                    out += "</table>";  
 
                     console.log(out);
                     
-                    $("#testDiv").html(out);
+                    $("#divOutputTable").html(out);
                 }
             });
         });
