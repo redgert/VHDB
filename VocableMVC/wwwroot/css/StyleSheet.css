@@ -13,9 +13,9 @@ body {
 html {
     height: 100%;
     width: 100%;
-    /*background-image: url('../VHDB/bookbw.jpeg');
-    background-size: cover;
-    background-attachment: fixed;
+    background: url('../VHDB/library.jpg');
+    background-size: cover !important;
+    background-attachment: fixed !important;
     overflow: hidden;
     position: relative;
     top: 0;
@@ -23,14 +23,14 @@ html {
     right: 0;
     bottom: 0;
     z-index: -1;
-    /*opacity: 0.3;*/
-    background-position: center;
-    background-repeat: no-repeat;*/
+    opacity: 0.9;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 
 #Mainbody p {
     font-size: 60px;
-    
+    opacity: 1;
 }
 /*-------LÄNK---*/
 a.nextword {
@@ -128,7 +128,7 @@ a.nextword {
 }
 
 /*---------Språkval quiz-------------*/
-#LanguageSelect1, #LanguageSelect2, #CategorySelect {
+#fromLanguageId, #toLanguageId, #categoryId {
     background-color: black;
     text-decoration-color: white;
     border: thin ridge;
@@ -148,6 +148,8 @@ a.nextword {
 .inp {
     -webkit-appearance: none; /* tar bort default radiobutton utseende */
     display: inline-flex;
+    left:auto;
+    vertical-align: middle;
     margin: 10px;
     width: 24px;
     height: 24px;
@@ -323,6 +325,7 @@ nav a {
     align-items: center;
     width: 100%;
     padding-bottom: 225px;
+    opacity: 1;
 }
 
 #Mainbody {
@@ -330,6 +333,7 @@ nav a {
     min-width: 404px;
     height: 100%;
     margin: 0 auto;
+    opacity: 1;
    
     /*padding-bottom: 150px;*/
     margin-top: 17px;
