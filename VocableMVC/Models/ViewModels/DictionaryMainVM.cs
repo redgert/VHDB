@@ -8,8 +8,7 @@ namespace VocableMVC.Models.ViewModels
     public class DictionaryMainVM
     {
         public string FromWord { get; set; }
-
-        public string ToWord { get; set; }                        
+        public string ToWord { get; set; }
     }
 
 

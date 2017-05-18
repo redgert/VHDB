@@ -22,17 +22,26 @@ namespace VocableMVC.Controllers
 
         // GET: /<controller>/
         public IActionResult Main()
-        {            
+        {
+            //Languages languageList = new Languages();
+            //int LID = languageList.Id;
+            //string languageName = languageList.Language;
 
+
+            //using (var db = new VHDBContext())
+            //{
+            //    var model = new GenerateLanguageMenu();
+            //    model.Languages = db.Languages.ToList();
+            //}
             return View();
         }
 
         [HttpGet]
-        public DictionaryMainVM[] GetDictionary(int toLanguageID, int categoryId)
+        public DictionaryMainVM[] GetDictionary(int fromLanguageId, int toLanguageId, int categoryId)
         {   
             Dictionary dictionary = new Dictionary (context);
 
-            DictionaryMainVM[] newVM = dictionary.GetDictionaryFromVHDB(toLanguageID, categoryId);
+            DictionaryMainVM[] newVM = dictionary.GetDictionaryFromVHDB(fromLanguageId, toLanguageId, categoryId);
                        
             return newVM;
         }

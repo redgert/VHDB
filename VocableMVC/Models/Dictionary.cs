@@ -18,12 +18,12 @@ namespace VocableMVC.Models
             _VHDBContext = vhdbContext;
         }
 
-        public DictionaryMainVM[] GetDictionaryFromVHDB(int toLanguageId, int categoryId)
+        public DictionaryMainVM[] GetDictionaryFromVHDB(int fromLanguageId, int toLanguageId, int categoryId)
         {
             
             //Bygg en lista av ord på valt språk
             var q1 = _VHDBContext.VocableDictionary
-                .Where(w => w.Cid == categoryId && w.Lid == 1)
+                .Where(w => w.Cid == categoryId && w.Lid == fromLanguageId)
                 .Select(w => new
                 {
                     OrgWord = w.Word,

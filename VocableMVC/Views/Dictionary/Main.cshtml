@@ -9,7 +9,15 @@
 <h1>Ordbok</h1>
 Gör dina val av språk och kategori för att hämta en ordlista<br />
 
-<select name="language" id="language">
+<select name="language" id="fromLanguageSelection">
+    <option value="1">Svenska</option>
+    <option value="2">Engelska</option>
+    <option value="3">Tyska</option>
+    <option value="4">Spanska</option>
+</select>
+
+<select name="language" id="toLanguageSelection">
+    <option value="1">Svenska</option>
     <option value="2">Engelska</option>
     <option value="3">Tyska</option>
     <option value="4">Spanska</option>
@@ -30,16 +38,20 @@ Gör dina val av språk och kategori för att hämta en ordlista<br />
     $(document).ready(function () {
 
         $('#buttonGetDictionary').click(function () {
-            var toLanguageId = $('#language').val();
+            var fromLanguageId = $('#fromLanguageSelection').val();
+            var fromLanguageString = $('#fromLanguageSelection').find(":selected").text();
+            //console.log(fromLanguageString);
+            var toLanguageId = $('#toLanguageSelection').val();
+            var toLanguageString = $('#toLanguageSelection').find(":selected").text();
             var categoryId = $('#category').val();
 
             $.ajax({
                 url: "/Dictionary/GetDictionary",
                 type: "GET",
-                data: { 'toLanguageId': toLanguageId, 'categoryId': categoryId },
+                data: { 'fromLanguageId': fromLanguageId, 'toLanguageId': toLanguageId, 'categoryId': categoryId },
                 success: function (returnJson) {
-                    var out = "<table border='1'><tr><th>svenska</th><th>annat språk</th></tr>";
-                    console.log(returnJson);
+                    var out = "<table border='1'><tr><th>" + fromLanguageString + "</th><th>" + toLanguageString + "</th></tr>";
+                    //console.log(returnJson);
                     for (var i = 0; i < returnJson.length; i++) {
                         out += "<tr><td>" + returnJson[i].fromWord + '</td><td>' + returnJson[i].toWord + "</td></tr>"; 
                     }
