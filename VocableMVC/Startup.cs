@@ -11,13 +11,14 @@ using Microsoft.EntityFrameworkCore;
 using VocableMVC.Models.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Mvc;
 
 namespace VocableMVC
 {
     public class Startup
     {
         public IConfigurationRoot Configuration { get; }
-
+        public IHostingEnvironment Environment { get; set; }
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -25,7 +26,7 @@ namespace VocableMVC
                 .AddUserSecrets<Startup>()
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
-
+            Environment = env;
         }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -52,7 +53,10 @@ namespace VocableMVC
 
             services.AddSession();
             services.AddMemoryCache();
-            services.AddMvc();
+            services.AddMvc(s => {
+                if (Environment.IsProduction())
+                    s.Filters.Add(new RequireHttpsAttribute());
+            });
 
         }
 
