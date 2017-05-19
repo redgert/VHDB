@@ -108,6 +108,13 @@ namespace VocableMVC.Controllers
             //Spara användaren i databasen
             var result = await _userManager.CreateAsync(new IdentityUser(model.UserName),
                 model.Password);
+
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError(nameof(AccountRegisterVM.UserName), result.Errors.First().Description);
+                return View(model);
+            }
+
             //när identity är klar
             //tar resterande data från anv. i VM. 
             //Skickar det till vår VHDBcontext
